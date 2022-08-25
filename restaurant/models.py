@@ -1,6 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
+from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
 
@@ -11,7 +10,7 @@ class Customer(models.Model):
     username = models.CharField(max_length=50, blank=False, unique=True)
     password = models.CharField(max_length=50, blank=False)
     email = models.EmailField(max_length=50, blank=False, unique=True)
-    phone = models.IntegerField(blank=False)
+    phone = PhoneNumberField(blank=False)
     registered_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     last_login = models.DateTimeField(auto_now=True)
