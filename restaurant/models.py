@@ -1,7 +1,6 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
-
-# Create your models here.
+from django.core.validators import MaxValueValidator, MinValueValidator 
 
 class Customer(models.Model):
     ''' Customer model '''
@@ -30,7 +29,7 @@ class Review(models.Model):
     ''' Review model '''
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     username = Customer.username
-    review = models.TextField(max_length=500)
+    review = models.TextField(max_length=500 ,blank=False)
     reviewed_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -51,8 +50,8 @@ class Reservation(models.Model):
     username = Customer.username
     email = Customer.email
     phone = Customer.phone
-    reservation_date_time = models.DateTimeField(auto_now_add=True)
-    number_of_people = models.IntegerField()
+    reservation_date_time = models.DateTimeField(blank=False)
+    number_of_people = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(100)])
     reservation_confirmed = models.BooleanField(default=False)
 
     def __str__(self):

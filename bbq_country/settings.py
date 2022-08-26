@@ -45,8 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'django_summernote',
-    'restaurant',
     'phonenumber_field',
+    'restaurant',
+    
 ]
 
 MIDDLEWARE = [
