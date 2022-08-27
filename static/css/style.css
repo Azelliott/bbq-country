@@ -1,0 +1,100 @@
+/* Home page - index.html */
+#index-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px repeat(auto-fill, minmax(100px, 1fr)) 100px auto;
+    grid-template-areas: 'navbar navbar navbar' 'index-main index-main index-main' '. . .' 'footer footer footer';
+}
+
+#index-main {
+    background-image: url('../image/hero-bg.jpg');
+    grid-area: index-main;
+}
+
+/* Menu page - menu.html */
+#menu-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px repeat(auto-fill, minmax(100px, 1fr)) auto;
+    grid-template-areas: 'navbar navbar navbar' 'menu-body menu-body menu-body' 'footer footer footer';
+}
+
+#menu-main {
+    display: grid;
+    grid-template-columns: 1fr minmax(100px, 1.5fr) minmax(100px, 1.5fr) minmax(100px, 1.5fr) 1fr;
+    grid-template-rows: minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr) 100px;
+    grid-template-areas: '. card-1 card-2 card-3 .' '. card-4 card-5 card-6 .' '. card-7 card-8 card-9 .' '. . . . .';
+    grid-gap: 20px;
+    grid-area: menu-body;
+}
+
+#card-1 {
+    grid-area: card-1;
+}
+
+#card-2 {
+    grid-area: card-2;
+}
+
+#card-3 {
+    grid-area: card-3;
+}
+
+#card-4 {
+    grid-area: card-4;
+}
+
+#card-5 {
+    grid-area: card-5;
+}
+
+#card-6 {
+    grid-area: card-6;
+}
+
+#card-7 {
+    grid-area: card-7;
+}
+
+#card-8 {
+    grid-area: card-8;
+}
+
+#card-9 {
+    grid-area: card-9;
+}
+
+/* Gallery page - gallery.html */
+#gallery-body {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 1fr 1fr 0.2fr;
+    grid-template-rows: auto minmax(100px, auto) auto;
+    grid-template-areas: 'navbar navbar navbar navbar navbar' 'gallery-main gallery-main gallery-main gallery-main gallery-main' 'footer footer footer footer footer';
+}
+
+#gallery-main {
+    grid-area: gallery-main;
+}
+
+/* About page - about.html */
+#about-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px repeat(auto-fill, minmax(100px, 1fr)) 100px;
+    grid-template-areas: 'navbar navbar navbar' 'about about about' 'footer footer footer';
+}
+
+#about-main {
+    grid-area: about;
+}
+
+/* Header and Footer -shared */
+#navbar {
+    grid-area: navbar;
+}
+
+#footer {
+    grid-area: footer;
+}
+
+

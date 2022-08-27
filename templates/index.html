@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<body id="index-body">
+    <header class="p-3 bg-dark text-white" id="navbar">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li>
+                        <a href="index.html" class="active nav-link px-2 text-secondary">Home</a>
+                    </li>
+                    <li>
+                        <a href="menu.html" class="nav-link px-2 text-white">Menu</a>
+                    </li>
+                    <li>
+                        <a href="gallery.html" class="nav-link px-2 text-white">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="about.html" class="nav-link px-2 text-white">About Us</a>
+                    </li>
+                    <li>
+                        <a href="booking.html" class="nav-link px-2 text-white">Book a Table</a>
+                    </li>
+                </ul>
+                <div class="text-end">
+                    <button type="button" class="btn btn-outline-light me-2">Login</button>
+                    <button type="button" class="btn btn-warning">Sign-up</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="background-center-center background-cover bg-dark min-vh-100 pb-5 position-relative pt-5 text-secondary" id="index-main">
+        <div class="container pb-5 pt-5">
+            <div class="pb-5 pt-5 row">
+                <div class="col-lg-6 pb-5 pt-5">
+                    <p class="font-monospace h6 text-uppercase text-warning">Licensed to grill</p>
+                    <h1 class="display-4 fw-bold mb-3 text-white">Welcome To BBQ Country</h1>
+                    <p class="fw-light lead mb-4 text-white">Any One Can Put The Heat To The Meat, But Only A Few Can Barbeque</p>
+                    <p class="fw-light lead mb-4 text-white">Rubbed, Smoked, Handcrafted.</p>
+                    <p class="fw-light lead mb-4 text-white">Visit today</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
