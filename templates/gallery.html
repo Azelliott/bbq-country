@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <body class="bg-dark" id="gallery-body">
+        <header class="p-3 bg-dark text-white" id="navbar">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li><a href="{% url 'home' %}" class="nav-link px-2 text-white">Home</a>
+                        </li>
+                        <li><a href="{% url 'menu' %}" class="nav-link px-2 text-white">Menu</a>
+                        </li>
+                        <li><a href="{% url 'gallery' %}" class="active nav-link px-2 text-secondary">Gallery</a>
+                        </li>
+                        <li><a href="about.html" class="nav-link px-2 text-white">About Us</a>
+                        </li>
+                        <li><a href="booking.html" class="nav-link px-2 text-white">Book a Table</a>
+                        </li>
+                    </ul>
+                    <div class="text-end">
+                        <button type="button" class="btn btn-outline-light me-2">Login</button>
+                        <button type="button" class="btn btn-warning">Sign-up</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="carousel slide" data-bs-ride="carousel" data-bs-keyboard="true" id="gallery-main">
+            <ol class="carousel-indicators">
+                <li data-bs-target="#gallery-main" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#gallery-main" data-bs-slide-to="1"></li>
+                <li data-bs-target="#gallery-main" data-bs-slide-to="2"></li>
+                <li data-bs-target="#gallery-main" data-bs-slide-to="3"></li>
+                <li data-bs-target="#gallery-main" data-bs-slide-to="4"></li>
+                <li data-bs-target="#gallery-main" data-bs-slide-to="5"></li>
+            </ol>
+            <div class="carousel-inner mw-100">
+                <div class="carousel-item active">
+                    <img class="image-fit-left-top w-100" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwyMDkyMnwwfDF8c2VhcmNofDE1fHxyZXN0YXVyYW50fGVufDB8fHx8MTY2MTMxMTQzMg&ixlib=rb-1.2.1&q=80" width="1080" height="900" alt="main bar"/>
+                </div>
+                <div class="carousel-item">
+                    <img class="image-fit-left-top w-100" src="https://images.unsplash.com/photo-1554306297-0c86e837d24b?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwyMDkyMnwwfDF8c2VhcmNofDl8fGJicXxlbnwwfHx8fDE2NjE0MjMxODg&ixlib=rb-1.2.1&q=80" width="1080" height="900" alt="grilling patties"/>
+                </div>
+                <div class="carousel-item">
+                    <img class="image-fit-left-top w-100" src="https://images.unsplash.com/photo-1588348141545-dfb22824ced3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDkyMnwwfDF8c2VhcmNofDE1MHx8YmJxfGVufDB8fHx8MTY2MTQyMzQ4NQ&ixlib=rb-1.2.1&q=80&w=1080" width="1080" height="900" alt="closeup grill"/>
+                </div>
+                <div class="carousel-item">
+                    <img class="image-fit-left-top w-100" src="https://images.unsplash.com/photo-1574791327995-56b12771a810?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwyMDkyMnwwfDF8c2VhcmNofDQ2fHxiYnF8ZW58MHx8fHwxNjYxNDIzMzQy&ixlib=rb-1.2.1&q=80" width="1080" height="900" alt="guests outside"/>
+                </div>
+                <div class="carousel-item">
+                    <img class="image-fit-left-top w-100" src="https://images.unsplash.com/photo-1462539405390-d0bdb635c7d1?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwyMDkyMnwwfDF8c2VhcmNofDUyfHxwZW9wbGUlMjByZXN0YXVyYW50fGVufDB8fHx8MTY2MTQyMjk4OA&ixlib=rb-1.2.1&q=80" width="1080" height="900" alt="barmen serving"/>
+                </div>
+                <div class="carousel-item">
+                    <img class="image-fit-left-top w-100" src="https://images.unsplash.com/photo-1558030018-d461fe79233e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDkyMnwwfDF8c2VhcmNofDI2NXx8YmJxfGVufDB8fHx8MTY2MTQyMzcyOA&ixlib=rb-1.2.1&q=80&w=1080" width="1080" height="900" alt="steak cutting closeup"/>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#gallery-main" role="button" data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="visually-hidden">Previous</span> </a>
+            <a class="carousel-control-next" href="#gallery-main" role="button" data-bs-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="visually-hidden">Next</span> </a>
+        </div>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen"/>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+{% endblock %}

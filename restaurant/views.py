@@ -8,3 +8,6 @@ class HomePage(TemplateView):
 
 class MenuPage(TemplateView):
     template_name = "menu.html"
+
+class GalleryPage(TemplateView):
+    template_name = "gallery.html"
