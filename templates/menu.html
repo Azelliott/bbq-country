@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <body id="menu-body">
+        <header class="p-3 bg-dark text-white" id="navbar">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li>
+                            <a href="{% url 'home' %}" class="nav-link px-2 text-white">Home</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'menu' %}" class="active nav-link px-2 text-secondary">Menu</a>
+                        </li>
+                        <li>
+                            <a href="gallery.html" class="nav-link px-2 text-white">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="about.html" class="nav-link px-2 text-white">About Us</a>
+                        </li>
+                        <li>
+                            <a href="booking.html" class="nav-link px-2 text-white">Book a Table</a>
+                        </li>
+                    </ul>
+                    <div class="text-end">
+                        <button type="button" class="btn btn-outline-light me-2">Login</button>
+                        <button type="button" class="btn btn-warning">Sign-up</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="background-center-center background-cover bg-dark min-vh-100 pb-5 position-relative pt-5 text-secondary" id="menu-main">
+            <div class="bg-white border-white card" id="card-1">
+                <img class="h-75 img-thumbnail w-100" src="https://images.unsplash.com/photo-1611354609291-69aba96e45df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDkyMnwwfDF8c2VhcmNofDV8fGJicSUyMHJpYnN8ZW58MHx8fHwxNjYxMzA2Mjk0&ixlib=rb-1.2.1&q=80&w=400" loading="lazy" alt="BBQ Ribs"/>
+                <div class="align-content-center card-body text-center">
+                    <p class="card-text"><h1>BBQ Ribs</h1>  
+                </div>
+            </div>
+            <div class="card" id="card-2">
+                <img src="https://images.unsplash.com/photo-1597377779407-51e50715cc7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDkyMnwwfDF8c2VhcmNofDl8fHJlc3RhdXJhbnQlMjBiYnF8ZW58MHx8fHwxNjYxMzE1MTUw&ixlib=rb-1.2.1&q=80&w=400" class="h-75 img-thumbnail w-100" loading="lazy" alt="Chicken Delight"/>
+                <div class="align-content-center card-body text-center">
+                    <p class="card-text"><h1>Chicken Delight</h1>  
+                </div>
+            </div>
+            <div class="card" id="card-3">
+                <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDkyMnwwfDF8c2VhcmNofDE2fHxiYXJiZWN1ZXxlbnwwfHx8fDE2NjE0MTc1MDU&ixlib=rb-1.2.1&q=80&w=400" class="h-75 img-thumbnail w-100" loading="lazy" alt="Skewers Plate"/>
+                <div class="align-content-center card-body text-center">
+                    <p class="card-text"><h1>Skewers Plate</h1>  
+                </div>
+            </div>
+            <div class="card" id="card-9">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDkyMnwwfDF8c2VhcmNofDIzfHxncmlsbHxlbnwwfHx8fDE2NjEyMjUwMDc&ixlib=rb-1.2.1&q=80&w=400" class="h-75 img-thumbnail w-100" loading="lazy" alt="Grill special"/>
+                <div class="align-content-center card-body text-center">
+                    <p class="card-text text-center"><h1>Grill special</h1>  
+                </div>
+            </div>
+            <div class="card" id="card-4">
+                <img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDkyMnwwfDF8c2VhcmNofDI1fHxidXJnZXJ8ZW58MHx8fHwxNjYxMjIzNTA0&ixlib=rb-1.2.1&q=80&w=400" class="h-75 img-thumbnail w-100" loading="lazy" alt="BBQ Burger"/>
+                <div class="align-content-center card-body text-center">
+                    <p class="card-text"><h1>BBQ Burger</h1>  
+                </div>
+            </div>
+            <div class="card" id="card-5">
+                <img src="https://images.unsplash.com/photo-1623945359666-8f855090ee81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDkyMnwwfDF8c2VhcmNofDI5fHxidXJnZXJ8ZW58MHx8fHwxNjYxMjIzNTA0&ixlib=rb-1.2.1&q=80&w=400" class="h-75 img-thumbnail w-100" loading="lazy" alt="Buffalo Burger"/>
+                <div class="align-content-center card-body text-center">
+                    <p class="card-text"><h1>Buffalo Burger</h1>  
+                </div>
+            </div>
+            <div class="card" id="card-7">
+                <img src="https://images.unsplash.com/photo-1633237308525-cd587cf71926?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDkyMnwwfDF8c2VhcmNofDE2fHxzdGVha3xlbnwwfHx8fDE2NjEyMjUwNzI&ixlib=rb-1.2.1&q=80&w=400" class="h-75 img-thumbnail w-100" loading="lazy" alt="T-bone Steak"/>
+                <div class="align-content-center card-body text-center">
+                    <p class="card-text"><h1>T-bone Steak</h1>  
+                </div>
+            </div>
+            <div class="card" id="card-6">
+                <img src="https://images.unsplash.com/photo-1596649299486-4cdea56fd59d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDkyMnwwfDF8c2VhcmNofDEyfHxidXJnZXJ8ZW58MHx8fHwxNjYxMjIzNTA0&ixlib=rb-1.2.1&q=80&w=400" class="h-75 img-thumbnail w-100" loading="lazy" alt="Buy 2 get 3 Deal"/>
+                <div class="align-content-center card-body text-center">
+                    <p class="card-text"><h1>Buy 2 get 3 Deal</h1>  
+                </div>
+            </div>
+            <div class="card" id="card-8">
+                <img src="https://images.unsplash.com/photo-1432139509613-5c4255815697?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDkyMnwwfDF8c2VhcmNofDd8fHRib25lJTIwc3RlYWt8ZW58MHx8fHwxNjYxMjI0OTYx&ixlib=rb-1.2.1&q=80&w=1080" class="h-75 img-thumbnail w-100" loading="lazy" alt="Rib-eye steak"/>
+                <div class="align-content-center card-body text-center">
+                    <p class="card-text text-center"><h1>Rib-eye steak</h1>  
+                </div>
+            </div>
+        </section>
+{% endblock %}

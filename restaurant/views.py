@@ -5,3 +5,6 @@ from django.views.generic import TemplateView
 
 class HomePage(TemplateView):
     template_name = "index.html"
+
+class MenuPage(TemplateView):
+    template_name = "menu.html"
