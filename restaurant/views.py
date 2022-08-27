@@ -11,3 +11,6 @@ class MenuPage(TemplateView):
 
 class GalleryPage(TemplateView):
     template_name = "gallery.html"
+
+class AboutPage(TemplateView):
+    template_name = "about.html"

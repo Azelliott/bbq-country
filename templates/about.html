@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <body class="bg-dark" id="about-body">
+        <header class="p-3 bg-dark text-white" id="navbar">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="@" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"> </a>
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li><a href="{% url 'home' %}" class="nav-link px-2 text-white">Home</a>
+                        </li>
+                        <li><a href="{% url 'menu' %}" class="nav-link px-2 text-white">Menu</a>
+                        </li>
+                        <li><a href="{% url 'gallery' %}" class="active nav-link px-2 text-white">Gallery</a>
+                        </li>
+                        <li><a href="{% url 'about' %}" class="nav-link px-2 text-muted">About Us</a>
+                        </li>
+                        <li><a href="booking.html" class="nav-link px-2 text-white">Book a Table</a>
+                        </li>
+                    </ul>
+                    <div class="text-end">
+                        <button type="button" class="btn btn-outline-light me-2">Login</button>
+                        <button type="button" class="btn btn-warning">Sign-up</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="bg-dark pb-5 pt-5 text-center text-lg-start text-white-50" id="about-main"> 
+            <div class="container pb-4 pt-4"> 
+                <div class="align-items-center row"> 
+                    <div class="col-lg-6 ms-auto order-lg-2 py-3 text-center">
+                        <div class="align-items-center justify-content-center row">
+                            <img src="https://images.unsplash.com/photo-1525164286253-04e68b9d94c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDkyMnwwfDF8c2VhcmNofDI2fHxyZXN0YXVyYW50JTIwYmJxfGVufDB8fHx8MTY2MTMxNTE1MA&ixlib=rb-1.2.1&q=80&w=400" class="col-5 img-fluid" width="170" alt="about burgers"/>
+                            <img src="https://images.unsplash.com/photo-1611520189922-f7b1ba7d801e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDkyMnwwfDF8c2VhcmNofDE4fHxiYnF8ZW58MHx8fHwxNjYxNDIzMTg4&ixlib=rb-1.2.1&q=80&w=400" class="col-6 img-fluid" width="200" alt="about skewers"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 order-lg-1 py-3">
+                        <h2 class="display-4 fw-bold text-warning">BBQ Country</h2>
+                        <h3 class="fw-light mb-4 text-white">Bringing you the best barbecue in town</h3>
+                        <p class="mb-4">The approach to the menu was easy. We had no interest in trying to reinvent food. We went with choices that were popular catering requests &mdash; basic, down-home style &mdash; just from a wide range of regions. We are known for our generous portions of BBQ, Southern, Cajun/Creole meals, plus a touch of Italian.</p>
+                    </div>                     
+                </div>                 
+            </div>             
+        </section>
+{% endblock %}

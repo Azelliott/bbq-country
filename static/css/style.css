@@ -80,7 +80,7 @@
 #about-body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 100px repeat(auto-fill, minmax(100px, 1fr)) 100px;
+    grid-template-rows: auto repeat(auto-fill, minmax(100px, 1fr)) auto;
     grid-template-areas: 'navbar navbar navbar' 'about about about' 'footer footer footer';
 }
 
