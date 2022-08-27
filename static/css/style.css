@@ -88,6 +88,34 @@
     grid-area: about;
 }
 
+
+#sign-up-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 'navbar navbar navbar navbar navbar' 'sign_up sign_up sign_up sign_up sign_up' 'footer footer footer footer footer';
+}
+
+#sign-up-main {
+    grid-area: sign_up;
+}
+
+#sign-up-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: '. form .';
+}
+
+#contactForm {
+    grid-area: form;
+}
+
+label {
+    color: aliceblue;
+}
+
+
 /* Header and Footer -shared */
 #navbar {
     grid-area: navbar;

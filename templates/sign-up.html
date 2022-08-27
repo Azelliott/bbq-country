@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <body class="bg-dark" id="sign-up-body">
+        <header class="p-3 bg-dark text-white" id="navbar">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="@" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"> </a>
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li><a href="{% url 'home' %}" class="nav-link px-2 text-white">Home</a>
+                        </li>
+                        <li><a href="{% url 'menu' %}" class="nav-link px-2 text-white">Menu</a>
+                        </li>
+                        <li><a href="{% url 'gallery' %}" class="active nav-link px-2 text-white">Gallery</a>
+                        </li>
+                        <li><a href="{% url 'about' %}" class="nav-link px-2 text-white">About Us</a>
+                        </li>
+                        <li><a href="booking.html" class="nav-link px-2 text-white">Book a Table</a>
+                        </li>
+                    </ul>
+                    <div class="text-end">
+                        <button type="button" class="btn btn-outline-light me-2">Login</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="bg-dark pb-5 pt-5 text-center text-lg-start text-white-50" id="sign-up-main">
+            <div class="container px-5 my-5" id="sign-up-container"> 
+                <form id="contactForm" method="post" class="text-body" style="grid-area:1 / 2 / 2 / 3;"> 
+                    {% csrf_token %}
+                    <div class="form-floating mb-3"> 
+                        {{ form.first_name|as_crispy_field }}                       
+                    </div>                     
+                    <div class="form-floating mb-3"> 
+                        {{ form.last_name|as_crispy_field }}                       
+                    </div>                     
+                    <div class="form-floating mb-3"> 
+                        {{ form.username|as_crispy_field }}                        
+                    </div>                     
+                    <div class="form-floating mb-3"> 
+                        {{ form.password|as_crispy_field }}                       
+                    </div>                     
+                    <div class="form-floating mb-3"> 
+                        {{ form.email|as_crispy_field }}                      
+                    </div>                     
+                    <div class="form-floating mb-3"> 
+                        {{ form.phone|as_crispy_field }}                   
+                    </div>                                       
+                    <div class="d-grid"> 
+                        <button class="btn btn-warning btn-lg" id="submitButton" type="submit">Submit</button>                         
+                    </div>                     
+                </form>                       
+            </div>             
+        </section>         
+{% endblock %}

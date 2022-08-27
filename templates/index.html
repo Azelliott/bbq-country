@@ -3,6 +3,7 @@
 {% load static %}
 
 {% block content %}
+
 <body id="index-body">
     <header class="p-3 bg-dark text-white" id="navbar">
         <div class="container">
@@ -26,12 +27,24 @@
                 </ul>
                 <div class="text-end">
                     <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <button type="button" class="btn btn-warning">Sign-up</button>
+                    <a href="{% url 'sign-up' %}" class="btn btn-warning">Sign-up</a>
                 </div>
             </div>
         </div>
     </header>
     <section class="background-center-center background-cover bg-dark min-vh-100 pb-5 position-relative pt-5 text-secondary" id="index-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    {% for message in messages %}
+                    <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                        {{ message | safe }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
         <div class="container pb-5 pt-5">
             <div class="pb-5 pt-5 row">
                 <div class="col-lg-6 pb-5 pt-5">
@@ -44,4 +57,11 @@
             </div>
         </div>
     </section>
+    <script>
+        setTimeout(function () {
+            let messages = document.getElementById('msg');
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 2500);
+    </script>
 {% endblock %}

@@ -8333,7 +8333,7 @@ body {
   z-index: 0; }
 
 body:before {
-  background-image: url(../../image/hero-bg.jpg) !important;
+  background-image: url(../assets/image/hero-bg.jpg) !important;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
