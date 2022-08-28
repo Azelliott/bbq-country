@@ -3,34 +3,39 @@
 {% load static %}
 
 {% block content %}
-    <body id="menu-body">
-        <header class="p-3 bg-dark text-white" id="navbar">
-            <div class="container">
-                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <li>
-                            <a href="{% url 'home' %}" class="nav-link px-2 text-white">Home</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'menu' %}" class="active nav-link px-2 text-secondary">Menu</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'gallery' %}" class="nav-link px-2 text-white">Gallery</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'about' %}" class="nav-link px-2 text-white">About Us</a>
-                        </li>
-                        <li>
-                            <a href="booking.html" class="nav-link px-2 text-white">Book a Table</a>
-                        </li>
-                    </ul>
-                    <div class="text-end">
-                        <button type="button" class="btn btn-outline-light me-2">Login</button>
-                        <a href="{% url 'sign-up' %}" class="btn btn-warning">Sign-up</a>
-                    </div>
+<header class="p-3 bg-dark text-white" id="navbar">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li>
+                    <a href="{% url 'home' %}" class="active nav-link px-2 text-white">Home</a>
+                </li>
+                <li>
+                    <a href="{% url 'menu' %}" class="nav-link px-2 text-secondary">Menu</a>
+                </li>
+                <li>
+                    <a href="{% url 'gallery' %}" class="nav-link px-2 text-white">Gallery</a>
+                </li>
+                <li>
+                    <a href="{% url 'about' %}" class="nav-link px-2 text-white">About Us</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li>
+                        <a href="#" class="nav-link px-2 text-white">Book a Table</a>
+                    </li>
+                {% endif %}
+            </ul>
+            {% if user.is_authenticated %}
+                <div class="text-end">
+                    <a href="{% url 'account_logout' %}" class="btn btn-warning">Logout</a>
                 </div>
-            </div>
-        </header>
+            {% else %}
+                <div class="text-end">
+                    <a href="{% url 'account_login' %}" class="btn btn-outline-light me-2">Login</a>
+                    <a href="{% url 'account_signup' %}" class="btn btn-warning">Sign-up</a>
+                </div>
+            {% endif %}
+</header>
         <section class="background-center-center background-cover bg-dark min-vh-100 pb-5 position-relative pt-5 text-secondary" id="menu-main">
             <div class="bg-white border-white card" id="card-1">
                 <img class="h-75 img-thumbnail w-100" src="https://images.unsplash.com/photo-1611354609291-69aba96e45df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMDkyMnwwfDF8c2VhcmNofDV8fGJicSUyMHJpYnN8ZW58MHx8fHwxNjYxMzA2Mjk0&ixlib=rb-1.2.1&q=80&w=400" loading="lazy" alt="BBQ Ribs"/>

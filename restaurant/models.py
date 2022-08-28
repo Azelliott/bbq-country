@@ -1,34 +1,16 @@
+from email.policy import default
 from django.db import models
+from django.contrib.auth.models import User
 from phonenumber_field.modelfields import PhoneNumberField
 from django.core.validators import MaxValueValidator, MinValueValidator 
 
-class Customer(models.Model):
-    ''' Customer model '''
-    first_name = models.CharField(max_length=50, blank=False)
-    last_name = models.CharField(max_length=50, blank=False)
-    username = models.CharField(max_length=50, blank=False, unique=True)
-    password = models.CharField(max_length=50, blank=False)
-    email = models.EmailField(max_length=50, blank=False, unique=True)
-    phone = PhoneNumberField(blank=False)
-    registered_on = models.DateTimeField(auto_now_add=True)
-    updated_on = models.DateTimeField(auto_now=True)
-    last_login = models.DateTimeField(auto_now=True)
-    has_reservation = models.BooleanField(default=False)
 
-    def __str__(self):
-        return str(self.username)
-    
-    class Meta:
-        ''' Meta class for Customer model '''
-        ordering = ['username']
-        verbose_name = 'Customer'
-        verbose_name_plural = 'Customers'
 
 
 class Review(models.Model):
     ''' Review model '''
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    username = Customer.username
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    username = User.username
     review = models.TextField(max_length=500 ,blank=False)
     reviewed_on = models.DateTimeField(auto_now_add=True)
 
@@ -44,22 +26,11 @@ class Review(models.Model):
 
 class Reservation(models.Model):
     ''' Reservation model '''
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    first_name = Customer.first_name
-    last_name = Customer.last_name
-    username = Customer.username
-    email = Customer.email
-    phone = Customer.phone
-    reservation_date_time = models.DateTimeField(blank=False)
+    first_name = models.CharField(max_length=30, blank=True)
+    last_name = models.CharField(max_length=50, blank=True)
+    email = models.EmailField(max_length=50, blank=True)
+    phone = models.CharField(max_length=50, blank=True)
+    reservation_date = models.DateField(blank=True)
+    reservation_time = models.TimeField(blank=True)
     number_of_people = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(100)])
-    reservation_confirmed = models.BooleanField(default=False)
 
-    def __str__(self):
-        ''' String representation of Reservation model '''
-        return str(self.reservation_date_time)
-
-    class Meta:
-        ''' Meta class for Reservation model '''
-        ordering = ['reservation_date_time']
-        verbose_name = 'Reservation'
-        verbose_name_plural = 'Reservations'

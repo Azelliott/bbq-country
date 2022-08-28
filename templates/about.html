@@ -7,25 +7,35 @@
         <header class="p-3 bg-dark text-white" id="navbar">
             <div class="container">
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                    <a href="@" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"> </a>
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <li><a href="{% url 'home' %}" class="nav-link px-2 text-white">Home</a>
+                        <li>
+                            <a href="{% url 'home' %}" class="active nav-link px-2 text-white">Home</a>
                         </li>
-                        <li><a href="{% url 'menu' %}" class="nav-link px-2 text-white">Menu</a>
+                        <li>
+                            <a href="{% url 'menu' %}" class="nav-link px-2 text-white">Menu</a>
                         </li>
-                        <li><a href="{% url 'gallery' %}" class="active nav-link px-2 text-white">Gallery</a>
+                        <li>
+                            <a href="{% url 'gallery' %}" class="nav-link px-2 text-white">Gallery</a>
                         </li>
-                        <li><a href="{% url 'about' %}" class="nav-link px-2 text-muted">About Us</a>
+                        <li>
+                            <a href="{% url 'about' %}" class="nav-link px-2 text-secondary">About Us</a>
                         </li>
-                        <li><a href="booking.html" class="nav-link px-2 text-white">Book a Table</a>
-                        </li>
+                        {% if user.is_authenticated %}
+                            <li>
+                                <a href="#" class="nav-link px-2 text-white">Book a Table</a>
+                            </li>
+                        {% endif %}
                     </ul>
-                    <div class="text-end">
-                        <button type="button" class="btn btn-outline-light me-2">Login</button>
-                        <a href="{% url 'sign-up' %}" class="btn btn-warning">Sign-up</a>
-                    </div>
-                </div>
-            </div>
+                    {% if user.is_authenticated %}
+                        <div class="text-end">
+                            <a href="{% url 'account_logout' %}" class="btn btn-warning">Logout</a>
+                        </div>
+                    {% else %}
+                        <div class="text-end">
+                            <a href="{% url 'account_login' %}" class="btn btn-outline-light me-2">Login</a>
+                            <a href="{% url 'account_signup' %}" class="btn btn-warning">Sign-up</a>
+                        </div>
+                    {% endif %}
         </header>
         <section class="bg-dark pb-5 pt-5 text-center text-lg-start text-white-50" id="about-main"> 
             <div class="container pb-4 pt-4"> 

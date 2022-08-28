@@ -2,8 +2,9 @@ from django.views.generic import TemplateView
 from django.views.generic import CreateView
 from django import forms
 from django.urls import reverse_lazy
-from restaurant.models import Customer
 from django.contrib.messages.views import SuccessMessageMixin
+
+from restaurant.models import Reservation
 
 
 # Create your views here.
@@ -20,14 +21,9 @@ class GalleryPage(TemplateView):
 class AboutPage(TemplateView):
     template_name = "about.html"
 
-class SignUpPage(SuccessMessageMixin, CreateView):
-    template_name = "sign-up.html"
-
-    model = Customer
-    fields = ['first_name', 'last_name', 'username', 'password', 'email', 'phone']
-    password = forms.CharField(label='Password*',widget=forms.PasswordInput(attrs={'placeholder': 'alphanumeric password'}))
-
-    
-    success_url = reverse_lazy('home')
-    success_message = 'User created sucessfully!'
+class BookingPage(CreateView):
+    model = Reservation
+    template_name = "booking.html"
+    fields = ('first_name', 'last_name', 'email', 'phone', 'reservation_date', 'reservation_time', 'number_of_people')
+    success_url='home'
 

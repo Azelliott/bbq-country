@@ -21,16 +21,22 @@
                     <li>
                         <a href="{% url 'about' %}" class="nav-link px-2 text-white">About Us</a>
                     </li>
-                    <li>
-                        <a href="booking.html" class="nav-link px-2 text-white">Book a Table</a>
-                    </li>
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'booking' %}" class="nav-link px-2 text-white">Book a Table</a>
+                        </li>
+                    {% endif %}
                 </ul>
-                <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <a href="{% url 'sign-up' %}" class="btn btn-warning">Sign-up</a>
-                </div>
-            </div>
-        </div>
+                {% if user.is_authenticated %}
+                    <div class="text-end">
+                        <a href="{% url 'account_logout' %}" class="btn btn-warning">Logout</a>
+                    </div>
+                {% else %}
+                    <div class="text-end">
+                        <a href="{% url 'account_login' %}" class="btn btn-outline-light me-2">Login</a>
+                        <a href="{% url 'account_signup' %}" class="btn btn-warning">Sign-up</a>
+                    </div>
+                {% endif %}
     </header>
     <section class="background-center-center background-cover bg-dark min-vh-100 pb-5 position-relative pt-5 text-secondary" id="index-main">
         <div class="container">
@@ -50,7 +56,7 @@
                 <div class="col-lg-6 pb-5 pt-5">
                     <p class="font-monospace h6 text-uppercase text-warning">Licensed to grill</p>
                     <h1 class="display-4 fw-bold mb-3 text-white">Welcome To BBQ Country</h1>
-                    <p class="fw-light lead mb-4 text-white">Any One Can Put The Heat To The Meat, But Only A Few Can Barbeque</p>
+                    <p class="fw-light lead mb-4 text-white">Any One Can Put The Heat To The Meat, But Only A Few Can Barbecue</p>
                     <p class="fw-light lead mb-4 text-white">Rubbed, Smoked, Handcrafted.</p>
                     <p class="fw-light lead mb-4 text-white">Visit today</p>
                 </div>
