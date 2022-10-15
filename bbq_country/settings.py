@@ -32,7 +32,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['bbq-country.herokuapp.com', '127.0.0.1']
 
@@ -45,17 +45,18 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
-    'django.contrib.staticfiles',
-    'cloudinary',
-    'django_summernote',
-    'phonenumber_field',
-    'crispy_forms',
-    'restaurant',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'cloudinary_storage',
+    'django.contrib.staticfiles',
+    'django_summernote',
+    'crispy_forms',
+    'cloudinary',
+    'phonenumber_field',
+    'restaurant',
+
 
 ]
 
@@ -92,7 +93,8 @@ ROOT_URLCONF = 'bbq_country.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR.joinpath('templates')],
+        'DIRS': [TEMPLATES_DIR],
+        
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
