@@ -9,12 +9,48 @@
         <meta name="author" content=""/>
         <title>Welcome to BBQ Country</title>
         <!-- Bootstrap core CSS -->
-        <link href="../static/css/bootstrap_theme/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="{% static 'css/bootstrap_theme/bootstrap.css' %}" rel="stylesheet" type="text/css"/>
         <!-- Custom styles for this template -->
-        <link rel="stylesheet" href="../static/css/blocks.css"/>
-        <link href="../static/css/style.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="{% static 'css/blocks.css' %}"/>
+        <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
         <base href="/">
     </head>
+    
+        <header class="p-3 bg-dark text-white" id="navbar">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        {% with url_name=request.resolver_match.url_name %}
+                        <li>
+                           <a href="{% url 'home' %}" class="nav-link px-2 {% if url_name == 'home' %} text-secondary {% else %} text-white {% endif %}">Home</a> 
+                        </li>
+                        <li>
+                            <a href="{% url 'menu' %}" class="nav-link px-2 {% if url_name == 'menu' %} text-secondary {% else %} text-white {% endif %}">Menu</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'gallery' %}" class="nav-link px-2 {% if url_name == 'gallery' %} text-secondary {% else %} text-white {% endif %}">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'about' %}" class="nav-link px-2 {% if url_name == 'about' %} text-secondary {% else %} text-white {% endif %}">About Us</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                            <li>
+                                <a href="{% url 'booking' %}" class="nav-link px-2 {% if url_name == 'booking' %} text-secondary {% else %} text-white {% endif %}">Book a Table</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                    {% if user.is_authenticated %}
+                        <div class="text-end">
+                            <a href="{% url 'account_logout' %}" class="btn btn-warning">Logout</a>
+                        </div>
+                    {% else %}
+                        <div class="text-end">
+                            <a href="{% url 'account_login' %}" class="btn btn-outline-light me-2">Login</a>
+                            <a href="{% url 'account_signup' %}" class="btn btn-warning">Sign-up</a>
+                        </div>
+                    {% endif %}
+                    {% endwith %} 
+        </header>
     {% block content %}
     <!-- Content Goes here -->
     {% endblock content %}
@@ -22,7 +58,8 @@
         <div class="container">
             <div class="align-items-center row">
                 <div class="col-md pb-2 pt-2">
-                    <p class="mb-0">&copy; 2012 - 2022. All Rights Reserved - BBQ Country</p>
+                    {% now "Y" as current_year %}
+                    <p class="mb-0">&copy; 2012 - {{ current_year }}. All Rights Reserved - BBQ Country</p>
                 </div>
                 <div class="col-md-auto pb-2 pt-2">
                     <div class="d-inline-flex flex-wrap"> <a href="https://facebook.com" target="_blank" class="p-1 text-secondary" aria-label="facebook"> <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"> 
@@ -44,7 +81,7 @@
     <!-- Bootstrap core JavaScript
 ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../static/js/popper.min.js"></script>
-    <script src="../static/css/bootstrap/js/bootstrap.min.js"></script>
-</body>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'css/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </html>
