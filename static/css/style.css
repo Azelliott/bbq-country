@@ -7,7 +7,7 @@
 }
 
 #index-main {
-    background-image: url('../image/hero-bg.jpg');
+    background-image: url('image/hero-bg.jpg');
     grid-area: index-main;
 }
 
@@ -88,29 +88,6 @@
     grid-area: about;
 }
 
-
-#sign-up-body {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    grid-template-areas: 'navbar navbar navbar navbar navbar' 'sign_up sign_up sign_up sign_up sign_up' 'footer footer footer footer footer';
-}
-
-#sign-up-main {
-    grid-area: sign_up;
-}
-
-#sign-up-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: '. form .';
-}
-
-#contactForm {
-    grid-area: form;
-}
-
 label {
     color: aliceblue;
 }
@@ -139,6 +116,49 @@ label {
 }
 
 
+
+#login-main { 
+    min-height: 100vh;
+}
+
+/* Signup page - allauth */
+#signup-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 'navbar navbar navbar' 'signup-main signup-main signup-main' 'footer footer footer';
+}
+
+#signup-main {
+    grid-area: 2 / 1 / 3 / 4;
+}
+
+#signup-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: '. signupForm .';
+}
+
+#signupForm {
+    grid-area: signupForm;
+}
+
+
+/* Sign out page - allauth*/
+#signout-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 'navbar navbar navbar' 'signout-main signout-main signout-main' 'footer footer footer';
+}
+
+#signout-main {
+    grid-area: signout-main;
+    width: 100%;
+}
+
+
 /* Header and Footer -shared */
 #navbar {
     grid-area: navbar;
@@ -146,6 +166,23 @@ label {
 
 #footer {
     grid-area: footer;
+}
+
+#message-container {
+    position: relative;
+}
+
+
+/* Messages */
+#message-container > div > div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
