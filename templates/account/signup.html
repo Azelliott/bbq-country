@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+
+<body class="bg-dark" id="signup-body">
+
+    <section class="bg-dark pb-5 pt-5 text-center text-lg-start text-white-50" id="signup-main">
+        <div class="container px-5 my-5" id="signup-container">
+            <div class="row">
+                <div class="bg-dark text-white col-background: darkgrey;">
+                    <h3>{% trans "Sign Up" %}</h3>
+        
+                    <p>{% blocktrans %}Already have an account?</p>
+                        <p>Please <a href="{{ login_url }}" class="text-warning"> Sign in </a>  instead.{% endblocktrans %}</p>
+                </div>
+            </div> 
+            <form class="signup" id="signupForm" method="post" action="{% url 'account_signup' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <button class="btn btn-warning right" type="submit">{% trans "Sign Up" %} &raquo;</button>
+            </form>                 
+        </div>                     
+    </section>         
+
+
+{% endblock %}
+
+
