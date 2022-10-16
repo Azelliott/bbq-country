@@ -1,1 +1,1 @@
-web: gunicorn bbq_country.wsgi
+web: python manage.py collectstatic --no-input; gunicorn bbq_country.wsgi
