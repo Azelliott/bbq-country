@@ -7,7 +7,7 @@
 }
 
 #index-main {
-    background-image: url('assets/image/hero-bg.jpg');
+    background-image: url('https://res.cloudinary.com/dafzoro1h/image/upload/v1661681887/static/image/hero-bg.88a3ee6fe6a1.jpg');
     grid-area: index-main;
 }
 
