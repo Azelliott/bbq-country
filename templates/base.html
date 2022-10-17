@@ -37,6 +37,9 @@
                             <li>
                                 <a href="{% url 'booking' %}" class="nav-link px-2 {% if url_name == 'booking' %} text-secondary {% else %} text-white {% endif %}">Book a Table</a>
                             </li>
+                            <li>
+                                <a href="{% url 'my_reservations' %}" class="nav-link px-2 {% if url_name == 'my_reservations' %} text-secondary {% else %} text-white {% endif %}">My Reservations</a>
+                            </li>
                         {% endif %}
                     </ul>
                     {% if user.is_authenticated %}

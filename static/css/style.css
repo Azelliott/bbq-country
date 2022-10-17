@@ -188,4 +188,36 @@ label {
     align-items: center;
 }
 
+/* My Reservations page*/
+#my-reservations-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 'navbar navbar navbar' 'my-reservations-main my-reservations-main my-reservations-main' 'footer footer footer';
+}
+
+#my-reservations-main {
+    height: 100%;
+    grid-area: my-reservations-main;
+}
+
+#my-reservations-container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: '. my-reservationsForm .';
+}
+
+#my-reservationsForm {
+    grid-area: my-reservationsForm;
+    height: 100%;
+}
+
+#reservation-table {
+    height: 100%;
+}
+
+
+
 

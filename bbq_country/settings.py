@@ -127,7 +127,12 @@ WSGI_APPLICATION = 'bbq_country.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ['DATABASE_URL'])
+    'default': dj_database_url.parse(os.environ['DATABASE_URL']),
+    'TEST': {
+            'NAME': 'default',
+            'USER': 'postgres',
+            'PASSWORD': 'default',
+        }
 }
 
 

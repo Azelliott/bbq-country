@@ -1,12 +1,7 @@
-from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
 from phonenumber_field.modelfields import PhoneNumberField
 from django.core.validators import MaxValueValidator, MinValueValidator
-from tomlkit import datetime 
-
-
-
 
 class Review(models.Model):
     ''' Review model '''

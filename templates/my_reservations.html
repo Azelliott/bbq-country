@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <body class="bg-dark" id="myreservations-body">
+        <section class="bg-dark pb-5 pt-5 text-center text-lg-start text-white-50" id="myreservations-main">
+            <div class="container px-5 my-5" id="myreservations-container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="display-4 fw-bold text-warning">My Reservations</h2>
+                        <h3 class="fw-light mb-4 text-white">Manage your reservations</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-dark table-striped" id="reservation_table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Reservation Date</th>
+                                    <th scope="col">Reservation Time</th>
+                                    <th scope="col">Number of People</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for reservation in reservations %}
+                                <tr>
+                                    <td>{{ reservation.first_name }}</td>
+                                    <td>{{ reservation.last_name }}</td>
+                                    <td>{{ reservation.email }}</td>
+                                    <td>{{ reservation.phone }}</td>
+                                    <td>{{ reservation.reservation_date }}</td>
+                                    <td>{{ reservation.reservation_time }}</td>
+                                    <td>{{ reservation.number_of_people }}</td>
+                                    <td>
+                                        <a href="{% url 'update_reservation' reservation.id %}" class="btn btn-warning">Update</a>
+                                        <a href="{% url 'delete_reservation' reservation.id %}" class="btn btn-danger">Delete</a>
+
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}
+
+
