@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_summernote',
     'crispy_forms',
+    'crispy_bootstrap5',
+    'bootstrap_datepicker_plus',
     'cloudinary',
     'phonenumber_field',
     'restaurant',
@@ -76,7 +78,9 @@ MESSAGE_TAGS = {
 }
 
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

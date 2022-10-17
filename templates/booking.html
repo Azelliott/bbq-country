@@ -40,7 +40,7 @@
         </header>
         <section class="bg-dark pb-5 pt-5 text-center text-lg-start text-white-50" id="booking-main">
             <div class="container px-5 my-5" id="booking-container"> 
-                <form id="bookingForm" method="post" class="text-muted"> 
+                <form id="bookingForm" method="POST" class="text-muted"> 
                     {% csrf_token %}
                     <div class="form-floating mb-3"> 
                         {{ form.first_name|as_crispy_field }}            
@@ -54,7 +54,7 @@
                     <div class="form-floating mb-3"> 
                         {{ form.phone|as_crispy_field }}                  
                     </div>                     
-                    <div class="form-floating mb-3"> 
+                    <div class="mb-3" data-provide="datepicker" data-date-format="mm/dd/yyyy">
                         {{ form.reservation_date|as_crispy_field }}                     
                     </div>                     
                     <div class="form-floating mb-3"> 

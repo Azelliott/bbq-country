@@ -2,7 +2,8 @@ from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
 from phonenumber_field.modelfields import PhoneNumberField
-from django.core.validators import MaxValueValidator, MinValueValidator 
+from django.core.validators import MaxValueValidator, MinValueValidator
+from tomlkit import datetime 
 
 
 
@@ -28,8 +29,8 @@ class Reservation(models.Model):
     ''' Reservation model '''
     first_name = models.CharField(max_length=30, blank=True)
     last_name = models.CharField(max_length=50, blank=True)
-    email = models.EmailField(max_length=50, blank=True)
-    phone = models.CharField(max_length=50, blank=True)
+    email = models.EmailField(max_length=254, blank=True)
+    phone = PhoneNumberField(blank=True)
     reservation_date = models.DateField(blank=True)
     reservation_time = models.TimeField(blank=True)
     number_of_people = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(100)])
