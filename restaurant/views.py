@@ -3,11 +3,13 @@ from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Reservation, Review
 from .forms import BookingForm
-from restaurant.models import Reservation
-from django.core.paginator import Paginator
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+
 
 
 class HomePage(TemplateView):
@@ -27,6 +29,7 @@ class AboutPage(TemplateView):
     template_name = "about.html"
 
 
+@method_decorator(login_required, name='dispatch')
 class BookingPage(CreateView):
     ''' Booking page view '''
     model = Reservation
@@ -44,10 +47,12 @@ class BookingPage(CreateView):
         messages.success(self.request, self.success_message)
         return reverse_lazy(self.success_url)
 
+
+@method_decorator(login_required, name='dispatch')
 class MyReservationsPage(TemplateView):
     ''' Show reservations page view for authenticated user'''
     template_name = "my_reservations.html"
-
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['reservations'] = Reservation.objects.filter(user=self.request.user)
