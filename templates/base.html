@@ -14,6 +14,20 @@
         <link rel="stylesheet" href="{% static 'css/blocks.css' %}"/>
         <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
         <base href="/">
+        <script src="{% static 'js/popper.min.js' %}"></script>
+        <script src="{% static 'css/bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!-- Bootstrap datepicker CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css"/>   
+        <!-- Bootstrap datepicker JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+        <!-- Bootstrap timepicker CSS -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+        <!-- Bootstrap timepicker JS -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+        <!-- Favicon -->
+        <link rel="icon" href="{% static 'image/favicon.png' 'image' %}"/>
+    
     </head>
     
         <header class="p-3 bg-dark text-white" id="navbar">
@@ -33,21 +47,27 @@
                         <li>
                             <a href="{% url 'about' %}" class="nav-link px-2 {% if url_name == 'about' %} text-secondary {% else %} text-white {% endif %}">About Us</a>
                         </li>
+                        <li>
+                            <a href="{% url 'reviews' %}" class="nav-link px-2 {% if url_name == 'reviews' %} text-secondary {% else %} text-white {% endif %}">Reviews</a>
+                        </li>
                         {% if user.is_authenticated %}
                             <li>
-                                <a href="{% url 'booking' %}" class="nav-link px-2 {% if url_name == 'booking' %} text-secondary {% else %} text-white {% endif %}">Book a Table</a>
+                                <a href="{% url 'booking' %}" class="nav-link px-2 {% if url_name == 'booking' %} text-secondary {% else %} text-white {% endif %}">| Book a Table</a>
                             </li>
                             <li>
                                 <a href="{% url 'my_reservations' %}" class="nav-link px-2 {% if url_name == 'my_reservations' %} text-secondary {% else %} text-white {% endif %}">My Reservations</a>
                             </li>
+                            <li>
+                                <a href="{% url 'add_review' %}" class="nav-link px-2 {% if url_name == 'add_review' %} text-secondary {% else %} text-white {% endif %}">Add Review</a>
+                            </li>
                         {% endif %}
                     </ul>
                     {% if user.is_authenticated %}
-                        <div class="text-end">
-                            <a href="{% url 'account_logout' %}" class="btn btn-warning">Logout</a>
+                        <div class="text-end float-end">
+                            <a href="{% url 'account_logout' %}" class="btn btn-warning">Logout: {{ user.get_username }}</a>
                         </div>
                     {% else %}
-                        <div class="text-end">
+                        <div class="text-end float-end">
                             <a href="{% url 'account_login' %}" class="btn btn-outline-light me-2">Login</a>
                             <a href="{% url 'account_signup' %}" class="btn btn-warning">Sign-up</a>
                         </div>
@@ -81,16 +101,4 @@
             </div>
         </div>
     </footer>
-    <!-- Bootstrap core JavaScript
-================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'css/bootstrap/js/bootstrap.min.js' %}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- Bootstrap datepicker CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"/>
-
-<!-- Bootstrap datepicker JS-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-
 </html>
