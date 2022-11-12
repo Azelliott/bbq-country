@@ -137,7 +137,7 @@ if 'test' in sys.argv:
             'HOST': 'ec2-52-48-159-67.eu-west-1.compute.amazonaws.com',
             'PORT': 5432,
             'TEST': {
-                'NAME': 'dc5ph4shdj82uh', #This is an important entry
+                'NAME': 'dc5ph4shdj82uh',
             }
         }
     }
