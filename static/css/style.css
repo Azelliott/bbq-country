@@ -9,7 +9,15 @@
 #index-main {
     background-image: url('https://res.cloudinary.com/dafzoro1h/image/upload/v1661681887/static/image/hero-bg.88a3ee6fe6a1.jpg');
     grid-area: index-main;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 85vh;
+
 }
+
+
 
 /* Menu page - menu.html */
 #menu-body {
@@ -86,6 +94,7 @@
 
 #about-main {
     grid-area: about;
+    min-height: 82vh;
 }
 
 label {
@@ -105,6 +114,7 @@ label {
 }
 
 #booking-container {
+    min-height: 67vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
@@ -189,35 +199,75 @@ label {
 }
 
 /* My Reservations page*/
-#my-reservations-body {
+
+#my_reservations-body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto auto;
-    grid-template-areas: 'navbar navbar navbar' 'my-reservations-main my-reservations-main my-reservations-main' 'footer footer footer';
+    grid-template-areas: 'navbar navbar navbar' 'myreservations-main myreservations-main myreservations-main' 'footer footer footer';
 }
 
-#my-reservations-main {
-    height: 100%;
-    grid-area: my-reservations-main;
+#my_reservations-main {
+    grid-area: myreservations-main;
 }
 
-#my-reservations-container {
-    height: 100%;
+#my_reservations-container {
+    min-height: 70vh;
+    grid-area: my_reservations-table;
+}
+
+#my_reservations-message {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#my_reservations-table {
+    width: 100%;
+}
+
+
+
+/* Add Review page */
+
+#add-review-body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: '. my-reservationsForm .';
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 'navbar navbar navbar' 'addreview-main addreview-main addreview-main' 'footer footer footer';
 }
 
-#my-reservationsForm {
-    grid-area: my-reservationsForm;
-    height: 100%;
+#add-review-main {
+    grid-area: addreview-main;
 }
 
-#reservation-table {
-    height: 100%;
+#add-review-container {
+    width:100%;
+    min-height: 70vh;
+    grid-area: addreview-main;
 }
 
+/* Reviews page */
 
+#reviews-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 'navbar navbar navbar' 'reviews-main reviews-main reviews-main' 'footer footer footer';
+}
 
+#reviews-main {
+    grid-area: reviews-main;
+}
+
+#reviews-container {
+    width:100%;
+    min-height: 70vh;
+    grid-area: reviews-main;
+}
 
