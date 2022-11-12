@@ -2,12 +2,14 @@ from django.db import models
 from django.contrib.auth.models import User
 from phonenumber_field.modelfields import PhoneNumberField
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.contrib.auth.models import User
 
 class Review(models.Model):
     ''' Review model '''
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    username = User.username
+    title = models.CharField(max_length=100)
     review = models.TextField(max_length=500 ,blank=False)
+    rating = models.IntegerField(default=5, validators=[MaxValueValidator(5), MinValueValidator(1)])
     reviewed_on = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -22,11 +24,13 @@ class Review(models.Model):
 
 class Reservation(models.Model):
     ''' Reservation model '''
-    first_name = models.CharField(max_length=30, blank=True)
-    last_name = models.CharField(max_length=50, blank=True)
-    email = models.EmailField(max_length=254, blank=True)
-    phone = PhoneNumberField(blank=True)
-    reservation_date = models.DateField(blank=True)
-    reservation_time = models.TimeField(blank=True)
+    # authenticated User
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=30 )
+    last_name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=254)
+    phone = PhoneNumberField()
+    reservation_date = models.DateField()
+    reservation_time = models.TimeField()
     number_of_people = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(100)])
 
