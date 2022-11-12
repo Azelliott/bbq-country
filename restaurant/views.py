@@ -122,6 +122,7 @@ class ReviewsPage(TemplateView):
         return context
 
 
+@method_decorator(login_required, name="dispatch")
 class AddReviewPage(CreateView):
     """Add review page view"""
 

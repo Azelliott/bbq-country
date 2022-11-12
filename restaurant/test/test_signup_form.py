@@ -38,9 +38,9 @@ class TestForms(TestCase):
             'password2': 'testpassword123#',
         })
         self.assertFalse(form.is_valid())
-        self.assertEqual(form.errors['username'], [u'This field is required.'])
+        self.assertEqual(form.errors['username'], ['This field is required.'])
 
-    # Test signup form missmatching passwords - invalid
+    # Test signup form miss-matching passwords - invalid
     def test_signup_form_missmatching_passwords(self):
         '''Test that the signup form missmatching passwords'''
         form = UserCreationForm({
@@ -51,6 +51,19 @@ class TestForms(TestCase):
         })
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['password2'], ["The two password fields didn’t match."])
+
+    # Test signup form missing password - invalid
+    def test_signup_form_missing_password(self):
+        '''Test that the signup form is missing password'''
+        form = UserCreationForm({
+            'username': 'testuser',
+            'email': 'test_user@test.com',
+            'password2': 'testpassword123#',
+        })
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['password1'], ['This field is required.'])
+
+
 
 
 
