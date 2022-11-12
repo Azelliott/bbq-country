@@ -70,6 +70,7 @@ LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 
+
 MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
     messages.DEBUG: 'alert-info',

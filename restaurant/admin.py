@@ -22,6 +22,9 @@ class AdminReview(SummernoteModelAdmin):
 class AdminReservation(admin.ModelAdmin):
     ''' Admin class for Reservation model '''
 
+    def username(self, obj):
+        ''' Return username of user who made the reservation '''
+        return obj.user.username
 
     def first_name(self, obj):
         ''' Get First Name field '''
@@ -54,16 +57,8 @@ class AdminReservation(admin.ModelAdmin):
     search_fields = ('first_name', 'last_name', 'email', 'phone'
     ,'reservation_date', 'number_of_people')
 
-    list_display = ( 'first_name', 'last_name', 'email', 'phone', 'reservation_date', 'number_of_people', )
+    list_display = ( 'username', 'first_name', 'last_name', 'email', 'phone', 'reservation_date', 'number_of_people' )
 
     list_filter = ( 'reservation_date'
     ,'number_of_people')
 
-
-#@admin.register(User)
-#class Adminuser(admin.ModelAdmin):
-#    ''' Admin class for user model '''
-
-#    search_fields = ('first_name', 'last_name', 'username', 'email', 'phone', 'has_reservation')
-#    list_display = ('first_name', 'last_name', 'username', 'email', 'phone', 'has_reservation')
-#    list_filter = ('first_name', 'last_name', 'username', 'email', 'phone', 'has_reservation')
