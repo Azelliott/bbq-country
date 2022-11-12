@@ -4,53 +4,71 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <body class="bg-dark" id="myreservations-body">
-        <section class="bg-dark pb-5 pt-5 text-center text-lg-start text-white-50" id="myreservations-main">
-            <div class="container px-5 my-5" id="myreservations-container">
+<!-- Reservation info in a table with buttons to update or delete the entries next to each entry.-->
+    <body class="bg-dark" id="my_reservations-body">
+        <section class="bg-dark pb-3 pt-3 text-center text-lg-start text-white-50" id="my_reservations-main">
+            <div class="container" id="message-container">
                 <div class="row">
-                    <div class="col-12">
-                        <h2 class="display-4 fw-bold text-warning">My Reservations</h2>
-                        <h3 class="fw-light mb-4 text-white">Manage your reservations</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <table class="table table-dark table-striped" id="reservation_table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Phone</th>
-                                    <th scope="col">Reservation Date</th>
-                                    <th scope="col">Reservation Time</th>
-                                    <th scope="col">Number of People</th>
-                                    <th scope="col">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for reservation in reservations %}
-                                <tr>
-                                    <td>{{ reservation.first_name }}</td>
-                                    <td>{{ reservation.last_name }}</td>
-                                    <td>{{ reservation.email }}</td>
-                                    <td>{{ reservation.phone }}</td>
-                                    <td>{{ reservation.reservation_date }}</td>
-                                    <td>{{ reservation.reservation_time }}</td>
-                                    <td>{{ reservation.number_of_people }}</td>
-                                    <td>
-                                        <a href="{% url 'update_reservation' reservation.id %}" class="btn btn-warning">Update</a>
-                                        <a href="{% url 'delete_reservation' reservation.id %}" class="btn btn-danger">Delete</a>
-
-                                    </td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
+                    <div class="col-md-8 offset-md-2">
+                        {% for message in messages %}
+                        <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                            {{ message | safe }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
+            <div class="container px-5 my-5 table-responsive-lg" id="my_reservations-container">
+                {% if reservations %}
+                <table id="my_reservations-table" class="table table-dark table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Reservation Date</th>
+                            <th scope="col">Reservation Time</th>
+                            <th scope="col">Number of People</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for reservation in reservations %}
+                        <tr>
+                            <td>{{ reservation.first_name }}</td>
+                            <td>{{ reservation.last_name }}</td>
+                            <td>{{ reservation.email }}</td>
+                            <td>{{ reservation.phone }}</td>
+                            <td>{{ reservation.reservation_date }}</td>
+                            <td>{{ reservation.reservation_time }}</td>
+                            <td>{{ reservation.number_of_people }}</td>
+                            <td><a href="{% url 'update_reservation' reservation.id %}" class="btn btn-primary">Update</a></td>
+                            <td><a href="{% url 'delete_reservation' reservation.id %}" class="btn btn-danger">Delete</a></td>          
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p>You have no reservations.</p>
+                <p><td><a href="{% url 'booking' %}" class="btn btn-warning">Book a reservation</a></td></p>
+                {% endif %}
+            </div>
         </section>
+        <!-- Message timeout -->
+        <script>
+            setTimeout(function () {
+                let messages = document.getElementById('msg');
+                let alert = new bootstrap.Alert(messages);
+                alert.close();
+            }, 2500);
+        </script>
 {% endblock %}
+
+
+
+
 
 
