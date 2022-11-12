@@ -13,33 +13,33 @@
             </div>
             {% endfor %}
         </div>
-        <section class="bg-dark pb-5 pt-5 text-center text-lg-start text-white-50" id="booking-main">
+        <div class="bg-dark pb-5 pt-5 text-center text-lg-start text-white-50" id="booking-main">
             <div class="container px-5 my-5" id="booking-container"> 
                 <form id="bookingForm" method="POST" class="text-muted" autocomplete="off"> 
                     {% csrf_token %}
-                    <div class="form-floating mb-3" required="true"> 
+                    <div class="form-floating mb-3"> 
                         {{ form.first_name|as_crispy_field }}            
                     </div>                     
-                    <div class="form-floating mb-3" required="true"> 
+                    <div class="form-floating mb-3" > 
                         {{ form.last_name|as_crispy_field }}                  
                     </div>                     
-                    <div class="form-floating mb-3" required="true"> 
+                    <div class="form-floating mb-3" > 
                         {{ form.email|as_crispy_field }}
                     </div>                     
-                    <div class="form-floating mb-3" required="true"> 
+                    <div class="form-floating mb-3" > 
                         {{ form.phone|as_crispy_field }}                  
                     </div>
-                    <div class="form-floating mb-3 input-group date" data-provide="datepicker" id="datepicker" required="true">
+                    <div class="form-floating mb-3 input-group date" data-provide="datepicker" id="datepicker" >
                         <div class="input-group-addon">
                           {{ form.reservation_date|as_crispy_field }}
                         </div>
                     </div>               
-                    <div class="form-floating mb-3 input-group" data-provide="timepicker" id="timepicker" required="true">
+                    <div class="form-floating mb-3 input-group" data-provide="timepicker">
                         <div class="timepicker" id="timepicker">
                           {{ form.reservation_time|as_crispy_field }}
                         </div>
                     </div>                     
-                    <div class="form-floating mb-3" required="true"> 
+                    <div class="form-floating mb-3" > 
                         {{ form.number_of_people|as_crispy_field }}                        
                     </div>
                     <div class="d-grid"> 
@@ -47,7 +47,7 @@
                     </div>                     
                 </form>                 
             </div>             
-        </section>
+        </div>
     </div>
         <script>
             $(function () {
