@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import sys
 import dj_database_url
 import mimetypes
 from django.contrib.messages import constants as messages
@@ -126,15 +127,24 @@ WSGI_APPLICATION = 'bbq_country.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-
-DATABASES = {
-    'default': dj_database_url.parse(os.environ['DATABASE_URL']),
-    'TEST': {
-            'NAME': 'default',
-            'USER': 'postgres',
-            'PASSWORD': 'default',
+if 'test' in sys.argv:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'dc5ph4shdj82uh',
+            'USER': 'pwpnwynbphxduf',
+            'PASSWORD': 'f84753f8d614f535851545232b0b17098155d755bacd959258bc765ceeeec1d4',
+            'HOST': 'ec2-52-48-159-67.eu-west-1.compute.amazonaws.com',
+            'PORT': 5432,
+            'TEST': {
+                'NAME': 'dc5ph4shdj82uh', #This is an important entry
+            }
         }
-}
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ['DATABASE_URL'])
+    }
 
 
 # Password validation

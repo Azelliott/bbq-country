@@ -1,7 +1,7 @@
 import email
 from django.test import TestCase
-from models import Reservation
-from forms import BookingForm
+from .models import Reservation
+from .forms import BookingForm
 from django.core.paginator import Paginator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
@@ -16,7 +16,14 @@ from django.contrib.auth import logout
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth import logout
+# import unittest
+from django.test import TestCase
+from django.test import Client
 
+
+
+if __name__ == '__main__':
+    unittest.main()
 
 # Test views
 class TestViews(TestCase):
