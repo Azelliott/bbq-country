@@ -4,7 +4,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <body class="bg-dark" id="booking-body">
+    <div class="bg-dark" id="booking-body">
         <div id="booking-messages" class="col-md-8 offset-md-2">
             {% for message in messages %}
             <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
@@ -48,6 +48,7 @@
                 </form>                 
             </div>             
         </section>
+    </div>
         <script>
             $(function () {
               $("#datepicker").datepicker({

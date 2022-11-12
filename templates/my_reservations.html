@@ -5,7 +5,7 @@
 
 {% block content %}
 <!-- Reservation info in a table with buttons to update or delete the entries next to each entry.-->
-    <body class="bg-dark" id="my_reservations-body">
+    <div class="bg-dark" id="my_reservations-body">
         <section class="bg-dark pb-3 pt-3 text-center text-lg-start text-white-50" id="my_reservations-main">
             <div class="container" id="message-container">
                 <div class="row">
@@ -57,6 +57,7 @@
                 {% endif %}
             </div>
         </section>
+    </div>
         <!-- Message timeout -->
         <script>
             setTimeout(function () {

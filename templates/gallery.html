@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-<body id="gallery-body">
+<div id="gallery-body">
         <div class="carousel slide" data-bs-ride="carousel" data-bs-keyboard="true" id="gallery-main">
             <ol class="carousel-indicators">
                 <li data-bs-target="#gallery-main" data-bs-slide-to="0" class="active"></li>
@@ -36,6 +36,7 @@
             <a class="carousel-control-prev" href="#gallery-main" role="button" data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="visually-hidden">Previous</span> </a>
             <a class="carousel-control-next" href="#gallery-main" role="button" data-bs-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="visually-hidden">Next</span> </a>
         </div>
+    </div>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen"/>
         <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
