@@ -52,3 +52,4 @@ Werkzeug==2.2.1
 wrapt==1.14.1
 whitenoise===6.2.0
 django-bootstrap-datepicker-plus==4.0.0
+crispy_bootstrap5==0.7.0
