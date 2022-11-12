@@ -2,16 +2,13 @@ from django.views.generic import TemplateView
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
 from django.contrib import messages
-# import missing modules
 from django.shortcuts import render, redirect
-from django.shortcuts import render
-from .models import Reservation
+from .models import Reservation, Review
 from .forms import BookingForm
-
 from restaurant.models import Reservation
+from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-
-# Create your views here.
 
 class HomePage(TemplateView):
     ''' Home page view '''
@@ -29,27 +26,33 @@ class AboutPage(TemplateView):
     ''' About page view '''
     template_name = "about.html"
 
+
 class BookingPage(CreateView):
     ''' Booking page view '''
     model = Reservation
     template_name = "booking.html"
     fields = ('first_name', 'last_name', 'email', 'phone', 'reservation_date', 'reservation_time', 'number_of_people')
-    success_url='home'
+    success_url='my_reservations'
     success_message = "Your booking has been made successfully, we will contact you shortly."
+    
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
     def get_success_url(self):
         messages.success(self.request, self.success_message)
         return reverse_lazy(self.success_url)
 
 class MyReservationsPage(TemplateView):
-    ''' My reservations page view '''
+    ''' Show reservations page view for authenticated user'''
     template_name = "my_reservations.html"
 
-    # Get reservation date, time and number of people of currently logged in user
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['reservations'] = Reservation.objects.filter(email=self.request.user.email)
+        context['reservations'] = Reservation.objects.filter(user=self.request.user)
         return context
+
 
 # Update reservation view that changes the current reservation and shows success message
 def update_reservation(request, pk):
@@ -65,13 +68,50 @@ def update_reservation(request, pk):
     context = {'form': form}
     return render(request, 'booking.html', context)
 
-# Delete the reservation from database and shows success message
+# Delete reservation data by id and show success message
 def delete_reservation(request, pk):
     ''' Delete reservation view '''
     reservation = Reservation.objects.get(id=pk)
-    if request.method == "POST":
+    if request.method == "GET":
         reservation.delete()
         messages.success(request, "Your reservation has been deleted successfully.")
         return redirect('my_reservations')
     context = {'item': reservation}
-    return render(request, 'my_reservations.html', context)
+    return render(request, 'delete_reservation.html', context)
+
+class ReviewsPage(TemplateView):
+    ''' Reviews page view shows paginated results sorted by latest reviewed_on '''
+    template_name = "reviews.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        reviews = Review.objects.all().order_by('-reviewed_on')
+        page = self.request.GET.get('page', 1)
+        paginator = Paginator(reviews, 4)
+        try:
+            reviews = paginator.page(page)
+        except PageNotAnInteger:
+            reviews = paginator.page(1)
+        except EmptyPage:
+            reviews = paginator.page(paginator.num_pages)
+        context['reviews'] = reviews
+        return context
+
+    
+
+
+class AddReviewPage(CreateView):
+    ''' Add review page view '''
+    model = Review
+    template_name = "add_review.html"
+    fields = ('title', 'review', 'rating')
+    success_url='reviews'
+    success_message = "Your review has been added successfully."
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        messages.success(self.request, self.success_message)
+        return reverse_lazy(self.success_url)
