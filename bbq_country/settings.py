@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'bootstrap_datepicker_plus',
     'cloudinary',
     'phonenumber_field',
+    'star_ratings',
     'restaurant',
 
 

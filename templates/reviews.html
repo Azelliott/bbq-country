@@ -3,6 +3,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+
 {% block content %}
 <!-- Reviews page.
 Each review card has a title and a review in main card body, and user, rating and date in smaller font on the right side.
@@ -25,13 +26,13 @@ Reviews are sorted by date and paginated. -->
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
                         {% for review in reviews %}
-                        <div class="card bg-dark text-white">
+                        <div class="card bg-dark text-white mb-3">
                             <div class="card-body">
                                 <h5 class="card-title text-warning">{{ review.title }}</h5>
                                 <p class="card-text">{{ review.review }}</p>
                             </div>
                             <div class="card-footer text-muted">
-                                <p class="card-text float-start">Rating: {{ review.rating }}</p>
+                                <p class="card-text float-start starability-result" data-rating="{{ review.rating }}">Rating: {{ review.rating }}</p>
                                 <p class="card-text float-end">{{ review.user }} | {{ review.reviewed_on }}</p>
                             </div>
                         </div>
