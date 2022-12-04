@@ -131,13 +131,13 @@ if 'test' in sys.argv:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': dj_database_url.parse(os.environ['TEST_DB_NAME']),
-            'USER': dj_database_url.parse(os.environ['TEST_DB_USER']),
-            'PASSWORD': dj_database_url.parse(os.environ['TEST_DB_KEY']),
-            'HOST': dj_database_url.parse(os.environ['TEST_DB_HOST']),
+            'NAME': 'd96brrk0q7ejtm',
+            'USER': 'esrrxozzmhbycd',
+            'PASSWORD': 'b7c98ed4aa26ac3aebe48bf36d38837f9f0c91fc972d3adb690999899a10b4c2',
+            'HOST': 'ec2-34-242-8-97.eu-west-1.compute.amazonaws.com',
             'PORT': 5432,
             'TEST': {
-                'NAME': dj_database_url.parse(os.environ['TEST_DB_NAME']),
+                'NAME': 'd96brrk0q7ejtm',
             }
         }
     }

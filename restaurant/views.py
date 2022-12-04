@@ -65,13 +65,24 @@ class BookingPage(CreateView):
 
 @method_decorator(login_required, name="dispatch")
 class MyReservationsPage(TemplateView):
-    """Show reservations page view for authenticated user"""
+    """Show paginated reservations page view for authenticated user"""
 
     template_name = "my_reservations.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["reservations"] = Reservation.objects.filter(user=self.request.user)
+        reservations = Reservation.objects.filter(user=self.request.user).order_by(
+            "-reservation_date"
+        )
+        page = self.request.GET.get("page", 1)
+        paginator = Paginator(reservations, 5)
+        try:
+            reservations = paginator.page(page)
+        except PageNotAnInteger:
+            reservations = paginator.page(1)
+        except EmptyPage:
+            reservations = paginator.page(paginator.num_pages)
+        context["reservations"] = reservations
         return context
 
 

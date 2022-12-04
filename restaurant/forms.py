@@ -11,19 +11,12 @@ class BookingForm(forms.ModelForm):
         """Meta class for BookingForm"""
 
         model = Reservation
-
         first_name = forms.CharField(required=True)
-
         last_name = forms.CharField()
-
         email = forms.EmailField()
-
         phone = forms.CharField()
-
         reservation_date = forms.DateField()
-
         reservation_time = forms.TimeField()
-
         number_of_people = forms.IntegerField()
 
         fields = (
