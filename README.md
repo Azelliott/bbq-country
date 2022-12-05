@@ -9,10 +9,10 @@ BBQ Country is a restaurant website that showcases the mouth-watering barbecue d
 
 Users can log in and book a date and time to dine at our restaurant. The website has been tested on various operating systems and browsers to ensure compatibility and a seamless user experience.
 
-![Screenshot of BBQ Country website](screenshot1.png)
+![Screenshot of BBQ Country website](static/image/screenshots/bbq-index.png)
 
 ### View the live preview [here](https://bbq-country.herokuapp.com/)
-
+(NOTE: Hold Ctrl and click the link to open in new tab)
 ***
 ## Table of content: 
  - [Technologies Used](#Technologies-Used)
@@ -29,7 +29,7 @@ Users can log in and book a date and time to dine at our restaurant. The website
  - [Testing and Validation](#Testing-and-Validation)
    * [OS and Browser Tests](#OS-and-Browser-Tests)
    * [Unit Testing](#Unit-Testing)
-   * [Validations](#Validations)
+   * [Validation](#Validation)
    * [Running Automated Tests](#Running-Automated-Tests)
  - [Attributions](#Attributions)
 
