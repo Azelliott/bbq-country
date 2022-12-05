@@ -4,7 +4,6 @@ BBQ Country is a restaurant offering the best barbecue in town. Our menu feature
 burgers and chicken on variety of ways. We also offer sides and desserts to satisfy any craving.
 
 ## Project Description
-***
 BBQ Country is a restaurant website that showcases the mouth-watering barbecue dishes available at our restaurant. The site features a main page with a brief overview of our restaurant, a menu page where users can browse through our delicious dishes, and a gallery page where users can see photos of our restaurant and food.
 
 Users can log in and book a date and time to dine at our restaurant. The website has been tested on various operating systems and browsers to ensure compatibility and a seamless user experience.
@@ -13,7 +12,7 @@ Users can log in and book a date and time to dine at our restaurant. The website
 
 ### View the live preview [here](https://bbq-country.herokuapp.com/)
 (NOTE: Hold Ctrl and click the link to open in new tab)
-***
+
 ## Table of content: 
  - [Technologies Used](#Technologies-Used)
  - [Deployment](#Deployment)
@@ -36,7 +35,7 @@ Users can log in and book a date and time to dine at our restaurant. The website
 
 
 ## Technologies Used
-***
+
 ### Core Technologies
 This project is built with the following technologies:
 
@@ -49,7 +48,7 @@ This project is built with the following technologies:
 [Starability](https://github.com/LunarLogic/starability) - Star rating library in pure HTML and CSS
 
 ## Deployment
-***
+
 ### Local Machine
 
 To deploy this project on your own server, follow these steps:
@@ -99,7 +98,6 @@ DATABASE_URL: URL of the PostgreSQL database
 
 
 ## Features
-***
 
 ### Overview
 * A main page with a brief overview of our restaurant.
@@ -111,31 +109,35 @@ DATABASE_URL: URL of the PostgreSQL database
 ### Main Page
 The main page features a minimalist design, containing only high-res background 
 and few (cheesy) slogans.
-
+![Screenshot of BBQ Country website](static/image/screenshots/bbq-index.png)
 
 ### Menu
 The menu page displays a list of barbecue dishes on offer. It features a image for each type of dish, such as pulled pork, ribs, and chicken, as well as a title. I didn't want to get into pricing and descriptions to keep it clean, but 
 it can be easily added to each card if needed.
+![Screenshot of BBQ Country website](static/image/screenshots/bbq-menu.png)
 
 ### Gallery
 Keeping up with minimalist style, the gallery page showcases photos of our delicious food and restaurant atmosphere. It includes a carousel of photos, each photo is fullscreen.
+![Screenshot of BBQ Country website](static/image/screenshots/bbq-gallery.png)
+
 
 ### About Us
 About Us page contains a short description of the restaurant.
+![Screenshot of BBQ Country website](static/image/screenshots/bbq-about.png)
 
 ### Reviews
 Authenticated users can leave a review for the restaurant on the reviews page. They can also view all reviews left by other users.
 Star rating is implemented with starability CSS library.
-
+![Screenshot of BBQ Country website](static/image/screenshots)
 
 
 
 ### Admin Panel
 The admin has the ability to view, update, and delete all reservations and reviews on the admin panel.
-
+![Screenshot of BBQ Country website](screenshot1.png)
 
 ## Testing and Validation
-***
+
 ### OS and Browser tests
 This project has been tested on the following operating systems and browsers:
 
@@ -171,4 +173,3 @@ python manage.py test
 ```
 
 ## Attributions
-***
