@@ -27,6 +27,8 @@ Users can log in and book a date and time to dine at our restaurant. The website
     * [Reviews](#Reviews)
     * [Booking Form](#Booking-Form)
     * [Reservations](#Reservations)
+    * [Sign in and Sign out](#Sign-in-and-Sign-out)
+    * [Admin Panel](#Admin-Panel)
  - [Testing and Validation](#Testing-and-Validation)
    * [OS and Browser Tests](#OS-and-Browser-Tests)
    * [Unit Testing](#Unit-Testing)
@@ -44,7 +46,7 @@ This project is built with the following technologies:
 * [Django](https://www.djangoproject.com/) 4.1.3 - A web framework for Python
 * [Bootstrap](https://getbootstrap.com/) 5.1.3 - A CSS framework for styling and layout
 * [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout) - A layout system for building responsive and flexible web pages
-* [PostgreSQL](https://www.postgresql.org/) - A databaOS and Browser Tests
+* [PostgreSQL](https://www.postgresql.org/) - Database
 
 ### Libraries
 [Starability](https://github.com/LunarLogic/starability) - Star rating library in pure HTML and CSS
@@ -139,9 +141,9 @@ Star rating is implemented with starability CSS library.
 
 ### Booking Form
 Authenticated users can book a time and date of their visit.
-Form has required fields and it also checks the validity of in formation entered.
+Form has required fields and it also checks the validity of information entered.
 For example email and phone number have to be in correct format.
-There is also date picker that has some defensive coding implemented, for example users can't book a date older than today.
+There is also date picker that has some defensive coding implemented, for example users can't book a date in the past.
 Form also has a timepicker with predefined working times.
 Number of people field requires minimum of 1, has to be number etc.
 Application will show the user messages on success/fail.
@@ -156,9 +158,15 @@ Delete button will, surprise.. delete the info from DB.
 Application will show the user messages for success/fail.
 ![Screenshot of BBQ Country website](static/image/screenshots/bbq-reservations.png)
 
+### Sign in and Sign out
+Sign in and sign out forms will show the user messages for success/fail.
+![Screenshot of BBQ Country website](static/image/screenshots/bbq-signin.png)
+![Screenshot of BBQ Country website](static/image/screenshots/bbq-signout.png)
+
+
 ### Admin Panel
-The admin has the ability to view, update, and delete all reservations and reviews on the admin panel.
-![Screenshot of BBQ Country website](screenshot1.png)
+The admin has the ability to view, update, and delete all reservations and reviews on the admin panel. He can also add or remove users or change their details.
+![Screenshot of BBQ Country website](static/image/screenshots/bbq-admin.png)
 
 ## Testing and Validation
 
