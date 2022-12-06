@@ -185,12 +185,35 @@ This project has been tested on the following operating systems and browsers:
 ### Unit Testing
 Unit tests are located in the restaurant/test repo folder. These tests cover the following features:
 
-Menu page: checks if the menu items are correctly displayed and have the correct format and content.
+#### Unauthenticated test:
 
-Gallery page: checks if the gallery images are correctly displayed and can be clicked to view a larger version.
+* Test GET method on unauthenticated views - pages that should load correctly 
+   - Index 
+   - Menu 
+   - Gallery 
+   - Reviews
 
-Login page: checks if the login form is properly functioning and can be submitted without errors.
+* Test GET method on unauthenticated views - pages that should redirect to login form 
+   - Booking 
+   - My Reservations
+   - Add Review
 
+#### Sign up form test:
+* Test signup form status code
+* Test signup form create user - valid
+* Test signup form missing username - invalid
+* Test signup form miss-matching passwords - invalid
+* Test signup form missing password - invalid
+
+#### Log in form
+* login form status code
+* login form with valid user
+* login form with invalid user
+
+#### Booking form
+* Test booking form for unauthenticated user, user should be redirected to login page
+* Test booking form for authenticated user
+* Test booking form with valid data, user should be redirected to my_reservations page after successful booking
 
 ### Validation
 The website has also been tested for HTML and PEP8 validation. 
