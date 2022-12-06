@@ -9,7 +9,7 @@ class Review(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
-    review = models.TextField(max_length=500, blank=False)
+    review = models.TextField(max_length=1500, blank=False)
     rating = models.IntegerField(
         default=5, validators=[MaxValueValidator(5), MinValueValidator(1)]
     )

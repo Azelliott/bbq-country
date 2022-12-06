@@ -25,6 +25,8 @@ Users can log in and book a date and time to dine at our restaurant. The website
     * [Gallery](#Gallery)
     * [About Us](#About-Us)
     * [Reviews](#Reviews)
+    * [Booking Form](#Booking-Form)
+    * [Reservations](#Reservations)
  - [Testing and Validation](#Testing-and-Validation)
    * [OS and Browser Tests](#OS-and-Browser-Tests)
    * [Unit Testing](#Unit-Testing)
@@ -104,11 +106,13 @@ DATABASE_URL: URL of the PostgreSQL database
 * A menu page where users can browse through our dishes.
 * A gallery page with photos of our restaurant and food.
 * About us page with short description of restaurant style and dishes.
-* User login and booking system for making reservations.
+* User login and booking system for making, updating or deleting the reservations.
+* Reviews page where users can post a review with a rating and see other reviews.
 
 ### Main Page
 The main page features a minimalist design, containing only high-res background 
 and few (cheesy) slogans.
+Header will show different options depending on whether user is authenticated or not. Logout button shows active username.
 ![Screenshot of BBQ Country website](static/image/screenshots/bbq-index.png)
 
 ### Menu
@@ -117,7 +121,7 @@ it can be easily added to each card if needed.
 ![Screenshot of BBQ Country website](static/image/screenshots/bbq-menu.png)
 
 ### Gallery
-Keeping up with minimalist style, the gallery page showcases photos of our delicious food and restaurant atmosphere. It includes a carousel of photos, each photo is fullscreen.
+Continuing in minimalist style, the gallery page showcases photos of our delicious food and restaurant atmosphere. It includes a carousel of photos, each photo is fullscreen.
 ![Screenshot of BBQ Country website](static/image/screenshots/bbq-gallery.png)
 
 
@@ -127,10 +131,30 @@ About Us page contains a short description of the restaurant.
 
 ### Reviews
 Authenticated users can leave a review for the restaurant on the reviews page. They can also view all reviews left by other users.
+Each post has username and a timestamp, posts are sorted in ascending order.
+There is a 1500 character limit.
 Star rating is implemented with starability CSS library.
-![Screenshot of BBQ Country website](static/image/screenshots)
+![Screenshot of BBQ Country website](static/image/screenshots/bbq-reviews.png)
+![Screenshot of BBQ Country website](static/image/screenshots/bbq-add-review.png)
 
+### Booking Form
+Authenticated users can book a time and date of their visit.
+Form has required fields and it also checks the validity of in formation entered.
+For example email and phone number have to be in correct format.
+There is also date picker that has some defensive coding implemented, for example users can't book a date older than today.
+Form also has a timepicker with predefined working times.
+Number of people field requires minimum of 1, has to be number etc.
+Application will show the user messages on success/fail.
+![Screenshot of BBQ Country website](static/image/screenshots/bbq-booking.png)
 
+### Reservations
+Not only can authenticated users see their reservations, they can also make updates 
+or cancel (delete) them altogeather.
+Each entry has Edit and Delete buttons. 
+Edit button will redirect the user to main booking form and prefill the fields with selected records info.
+Delete button will, surprise.. delete the info from DB.
+Application will show the user messages for success/fail.
+![Screenshot of BBQ Country website](static/image/screenshots/bbq-reservations.png)
 
 ### Admin Panel
 The admin has the ability to view, update, and delete all reservations and reviews on the admin panel.

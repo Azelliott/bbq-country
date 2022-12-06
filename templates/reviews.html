@@ -29,7 +29,7 @@ Reviews are sorted by date and paginated. -->
                         <div class="card bg-dark text-white mb-3">
                             <div class="card-body">
                                 <h5 class="card-title text-warning">{{ review.title }}</h5>
-                                <p class="card-text">{{ review.review }}</p>
+                                <p class="card-text">{{ review.review|safe }}</p>
                             </div>
                             <div class="card-footer text-muted">
                                 <p class="card-text float-start starability-result" data-rating="{{ review.rating }}">Rating: {{ review.rating }}</p>
