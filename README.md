@@ -178,7 +178,27 @@ Unit tests are located in the restaurant/test repo folder. These tests cover the
 
 
 ### Validation
-The website has also been tested for HTML and PEP8 validation. 
+The website has been tested for HTML and PEP8 validation.
+
+
+#### PEP8
+[CI PEP8 Validator](https://pep8ci.herokuapp.com/#) - Code institute validator
+
+Site is 99.9% PEP8 compilant - it only failed in 2 instances on "line too long" but trying to split the line 
+brakes the code so I left it like that.
+
+First instance:
+![Screenshot of BBQ Country website](static/image/screenshots/validations/bbq-pep8-1.png)
+![Screenshot of BBQ Country website](static/image/screenshots/validations/bbq-pep8-1.1.png)
+
+Second instance:
+![Screenshot of BBQ Country website](static/image/screenshots/validations/bbq-pep8-2.png)
+![Screenshot of BBQ Country website](static/image/screenshots/validations/bbq-pep8-2.2.png)
+
+
+#### HTML
+[W3 HTML Validator](https://validator.w3.org/nu/) - W3 HTML Online Validator
+
 
 
 ### Running Automated Tests
@@ -193,13 +213,14 @@ python manage.py test
 
 ### Local Machine
 
-To deploy this project on your own server, follow these steps:
+To deploy this project on your own server/local machine, follow these steps:
 
 1. Install Python and PostgreSQL on your server.
 2. Clone the repository from GitHub:
 
+```
 git clone https://github.com/Azelliott/bbq-country.git
-
+```
 
 3. Install the project dependencies:
 ```
