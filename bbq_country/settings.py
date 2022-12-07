@@ -60,7 +60,6 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'restaurant',
 
-
 ]
 
 SITE_ID = 1
@@ -127,18 +126,12 @@ WSGI_APPLICATION = 'bbq_country.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
 if 'test' in sys.argv:
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': dj_database_url.parse(os.environ['TEST_DB_NAME']),
-            'USER': dj_database_url.parse(os.environ['TEST_DB_USER']),
-            'PASSWORD': dj_database_url.parse(os.environ['TEST_DB_PASSWORD']),
-            'HOST': dj_database_url.parse(os.environ['TEST_DB_HOST']),
-            'PORT': 5432,
-            'TEST': {
-                'NAME': dj_database_url.parse(os.environ['TEST_DB_NAME']),
-            }
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': ':memory:',
         }
     }
 else:

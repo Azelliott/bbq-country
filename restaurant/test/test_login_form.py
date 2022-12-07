@@ -32,7 +32,7 @@ class TestForms(TestCase):
     # Test login form with invalid user
     def test_login_form_with_invalid_user(self):
         '''Test that the login form is rendered'''
-        
+
         user = User.objects.create_user(
             username='testuser',
             password='testpassword123#'

@@ -9,7 +9,8 @@ urlpatterns = [
     path("about/", views.AboutPage.as_view(), name="about"),
     path("booking/", views.BookingPage.as_view(), name="booking"),
     path(
-        "my_reservations/", views.MyReservationsPage.as_view(), name="my_reservations"
+        "my_reservations/", views.MyReservationsPage.as_view(),
+        name="my_reservations"
     ),
     path(
         "update_reservation/<str:pk>/",

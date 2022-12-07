@@ -50,7 +50,8 @@ class TestForms(TestCase):
             'password2': 'testpassword123',
         })
         self.assertFalse(form.is_valid())
-        self.assertEqual(form.errors['password2'], ["The two password fields didn’t match."])
+        self.assertEqual(form.errors['password2'],
+                                    ["The two password fields didn’t match."])
 
     # Test signup form missing password - invalid
     def test_signup_form_missing_password(self):
@@ -62,12 +63,3 @@ class TestForms(TestCase):
         })
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['password1'], ['This field is required.'])
-
-
-
-
-
-
-
-
-        

@@ -15,9 +15,6 @@ Users can log in and book a date and time to dine at our restaurant. The website
 
 ## Table of content: 
  - [Technologies Used](#Technologies-Used)
- - [Deployment](#Deployment)
-    * [Local Machine](#Local-Machine)
-    * [Heroku](#Heroku)
  - [Features](#Features)
     * [Overview](#Overview)
     * [Main Page](#Main-Page)
@@ -34,6 +31,9 @@ Users can log in and book a date and time to dine at our restaurant. The website
    * [Unit Testing](#Unit-Testing)
    * [Validation](#Validation)
    * [Running Automated Tests](#Running-Automated-Tests)
+ - [Deployment](#Deployment)
+    * [Local Machine](#Local-Machine)
+    * [Heroku](#Heroku)
  - [Attributions](#Attributions)
 
 
@@ -46,59 +46,16 @@ This project is built with the following technologies:
 * [Django](https://www.djangoproject.com/) 4.1.3 - A web framework for Python
 * [Bootstrap](https://getbootstrap.com/) 5.1.3 - A CSS framework for styling and layout
 * [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout) - A layout system for building responsive and flexible web pages
-* [PostgreSQL](https://www.postgresql.org/) - Database
+* [PostgreSQL](https://www.postgresql.org/) - Database Engine
 
 ### Libraries
 [Starability](https://github.com/LunarLogic/starability) - Star rating library in pure HTML and CSS
 
-## Deployment
+[Django Phone Number Field](https://pypi.org/project/django-phonenumber-field/) - A Django library which interfaces with python-phonenumbers to validate, pretty print and convert phone numbers. python-phonenumbers is a port of Google’s libphonenumber library, which powers Android’s phone number handling.
 
-### Local Machine
+[Bootstrap Datepicker](https://bootstrap-datepicker.readthedocs.io/en/latest/) - Bootstrap-datepicker provides a flexible datepicker widget in the Bootstrap style.
 
-To deploy this project on your own server, follow these steps:
-
-1. Install Python and PostgreSQL on your server.
-2. Clone the repository from GitHub:
-
-git clone https://github.com/Azelliott/bbq-country.git
-
-
-3. Install the project dependencies:
-```
-cd bbq-country
-pip install -r requirements.txt
-```
-
-
-4. Set up the database and create a superuser:
-```
-python manage.py migrate
-python manage.py createsuperuser
-```
-
-5. Start the server:
-```
-python manage.py runserver
-```
-
-6. Open a web browser and go to `http://localhost:8000` to access the website.
-
-### Heroku
-1. Create a new Heroku app and a database ( DB can be a separate service )
-2. Connect the app to the GitHub repository
-
-3. Create env.py file and set up config vars:
-
-```
-SECRET_KEY: secret key for Django
-
-DEBUG: set to False in production
-
-ALLOWED_HOSTS: hostname of the Heroku app
-
-DATABASE_URL: URL of the PostgreSQL database
-
-```
+[jQuery Timepicker](https://timepicker.co/) - jQuery Timepicker can parse the most used time representations allowing you and your users to enter time using their prefered way for writing it.
 
 
 ## Features
@@ -151,7 +108,7 @@ Application will show the user messages on success/fail.
 
 ### Reservations
 Not only can authenticated users see their reservations, they can also make updates 
-or cancel (delete) them altogeather.
+or cancel (delete) them altogether.
 Each entry has Edit and Delete buttons. 
 Edit button will redirect the user to main booking form and prefill the fields with selected records info.
 Delete button will, surprise.. delete the info from DB.
@@ -215,6 +172,11 @@ Unit tests are located in the restaurant/test repo folder. These tests cover the
 * Test booking form for authenticated user
 * Test booking form with valid data, user should be redirected to my_reservations page after successful booking
 
+<br>
+
+![Screenshot of BBQ Country website](static/image/screenshots/bbq-unit-tests.png)
+
+
 ### Validation
 The website has also been tested for HTML and PEP8 validation. 
 
@@ -226,5 +188,56 @@ To run the automated tests for this project, run the following command:
 ```
 python manage.py test
 ```
+
+## Deployment
+
+### Local Machine
+
+To deploy this project on your own server, follow these steps:
+
+1. Install Python and PostgreSQL on your server.
+2. Clone the repository from GitHub:
+
+git clone https://github.com/Azelliott/bbq-country.git
+
+
+3. Install the project dependencies:
+```
+cd bbq-country
+pip install -r requirements.txt
+```
+
+
+4. Set up the database and create a superuser:
+```
+python manage.py migrate
+python manage.py createsuperuser
+```
+
+5. Start the server:
+```
+python manage.py runserver
+```
+
+6. Open a web browser and go to `http://localhost:8000` to access the website.
+
+### Heroku
+1. Create a new Heroku app and a database ( DB can be a separate service )
+2. Connect the app to the GitHub repository
+
+3. Create env.py file and set up config vars:
+
+```
+SECRET_KEY: secret key for Django
+
+DEBUG: set to False in production
+
+ALLOWED_HOSTS: hostname of the Heroku app
+
+DATABASE_URL: URL of the PostgreSQL database
+
+```
+
+
 
 ## Attributions

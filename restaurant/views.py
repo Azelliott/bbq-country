@@ -86,7 +86,8 @@ class MyReservationsPage(TemplateView):
         return context
 
 
-# Update reservation view that changes the current reservation and shows success message
+# Update reservation view that changes the current reservation and shows
+# success message
 def update_reservation(request, pk):
     """Update reservation view"""
     reservation = Reservation.objects.get(id=pk)
@@ -95,7 +96,8 @@ def update_reservation(request, pk):
         form = BookingForm(request.POST, instance=reservation)
         if form.is_valid():
             form.save()
-            messages.success(request, "Your reservation has been updated successfully.")
+            messages.success(request, "Your reservation has been updated \
+            successfully.")
             return redirect("my_reservations")
     context = {"form": form}
     return render(request, "booking.html", context)
@@ -107,14 +109,16 @@ def delete_reservation(request, pk):
     reservation = Reservation.objects.get(id=pk)
     if request.method == "GET":
         reservation.delete()
-        messages.success(request, "Your reservation has been deleted successfully.")
+        messages.success(request, "Your reservation has been deleted \
+        successfully.")
         return redirect("my_reservations")
     context = {"item": reservation}
     return render(request, "delete_reservation.html", context)
 
 
 class ReviewsPage(TemplateView):
-    """Reviews page view shows paginated results sorted by latest reviewed_on"""
+    """Reviews page view shows paginated results sorted by
+       most recent review"""
 
     template_name = "reviews.html"
 

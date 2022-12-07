@@ -2,6 +2,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
+
 # Test GET method on unauthenticated views: Index, Menu, Gallery, Reviews
 class TestViews(TestCase):
     '''def test_reviews_get(self):'''
@@ -34,7 +35,8 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'reviews.html')
 
-    # Test GET method on unauthenticated views: Booking, My Reservations, Add Review
+    # Test GET method on unauthenticated views:
+    # Booking, My Reservations, Add Review
 
     def test_booking_get(self):
         '''Test that the booking page is rendered'''
@@ -59,4 +61,3 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, '/accounts/login/?next=/add_review/')
         self.assertTemplateNotUsed(response, 'add_review.html')
-        

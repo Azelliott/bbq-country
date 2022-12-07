@@ -11,7 +11,6 @@ class AdminReview(SummernoteModelAdmin):
         ''' Return username of user who wrote the review '''
         return obj.user.username
 
-
     summernote_fields = 'review'
     search_fields = ('username', 'review', 'reviewed_on')
     list_display = ('username', 'review', 'reviewed_on')
@@ -54,11 +53,10 @@ class AdminReservation(admin.ModelAdmin):
         ''' Get reservation Number of People field '''
         return obj.number_of_people
 
-    search_fields = ('first_name', 'last_name', 'email', 'phone'
-    ,'reservation_date', 'number_of_people')
+    search_fields = ('first_name', 'last_name', 'email', 'phone',
+                     'reservation_date', 'number_of_people')
 
-    list_display = ( 'username', 'first_name', 'last_name', 'email', 'phone', 'reservation_date', 'number_of_people' )
+    list_display = ('username', 'first_name', 'last_name', 'email', 'phone',
+                    'reservation_date', 'number_of_people')
 
-    list_filter = ( 'reservation_date'
-    ,'number_of_people')
-
+    list_filter = ('reservation_date', 'number_of_people')
