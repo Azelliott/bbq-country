@@ -15,6 +15,7 @@ Users can log in and book a date and time to dine at our restaurant. The website
 
 ## Table of content: 
  - [Technologies Used](#Technologies-Used)
+ - [Look and Color Scheme](#Look-and-Color-Scheme)
  - [Features](#Features)
     * [Overview](#Overview)
     * [Main Page](#Main-Page)
@@ -36,7 +37,8 @@ Users can log in and book a date and time to dine at our restaurant. The website
     * [Heroku](#Heroku)
  - [Attributions](#Attributions)
 
-
+## Look and Color Scheme
+Website has a minimalist design with a dark charcoal gray color scheme, which gives it a sleek and modern look. The buttons and headers are highlighted in a bold yellow color, evoking the warmth and vibrancy of embers, which perfectly fits the barbecue theme. By combining these colors and design elements, aim is to create an inviting and enjoyable online experience for customers.
 
 ## Technologies Used
 
@@ -266,4 +268,3 @@ DATABASE_URL: URL of the PostgreSQL database
 ## Attributions
 
 Site images found on [Unsplash](https://unsplash.com/)
-Favicon is from  
