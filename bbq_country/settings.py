@@ -33,7 +33,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['bbq-country.herokuapp.com', '127.0.0.1']
 
@@ -70,7 +70,6 @@ LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 
-
 MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
     messages.DEBUG: 'alert-info',
@@ -101,7 +100,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [TEMPLATES_DIR],
-        
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

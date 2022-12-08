@@ -264,3 +264,6 @@ DATABASE_URL: URL of the PostgreSQL database
 
 
 ## Attributions
+
+Site images found on [Unsplash](https://unsplash.com/)
+Favicon is from  
