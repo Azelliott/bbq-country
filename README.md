@@ -71,60 +71,51 @@ This project is built with the following technologies:
 * Reviews page where users can post a review with a rating and see other reviews.
 
 ### Main Page
-The main page features a minimalist design, containing only high-res background 
-and few (cheesy) slogans.
-Header will show different options depending on whether user is authenticated or not. Logout button shows active username.
+The main page of the website features a minimalist design with a high-resolution background and a few (cheesy) slogans. The header will display different options depending on whether the user is authenticated or not, with a logout button that shows the active username.
+
 ![Screenshot of BBQ Country website](static/image/screenshots/bbq-index.png)
 
 ### Menu
-The menu page displays a list of barbecue dishes on offer. It features a image for each type of dish, such as pulled pork, ribs, and chicken, as well as a title. I didn't want to get into pricing and descriptions to keep it clean, but 
-it can be easily added to each card if needed.
+The menu page showcases the delicious barbecue dishes on offer. Each dish is represented by a beautiful image, such as pulled pork, ribs, and chicken, accompanied by a title. I have deliberately kept the design clean and simple by omitting pricing and descriptions, but it would be easy to add this information to each dish card if needed.
+
 ![Screenshot of BBQ Country website](static/image/screenshots/bbq-menu.png)
 
 ### Gallery
-Continuing in minimalist style, the gallery page showcases photos of our delicious food and restaurant atmosphere. It includes a carousel of photos, each photo is fullscreen.
+In keeping with the minimalist website style, the gallery page showcases photos of delicious food and inviting restaurant atmosphere. The page features a carousel of full-screen images that allow customers to fully appreciate the dishes and the ambiance of a restaurant.
+
 ![Screenshot of BBQ Country website](static/image/screenshots/bbq-gallery.png)
 
 
 ### About Us
-About Us page contains a short description of the restaurant.
+This page gives the customers an idea of who we are, what we offer, and what sets us apart from other barbecue restaurants. It helps the customers learn more about the restaurant and connect with the brand.
+
 ![Screenshot of BBQ Country website](static/image/screenshots/bbq-about.png)
 
 ### Reviews
-Authenticated users can leave a review for the restaurant on the reviews page. They can also view all reviews left by other users.
-Each post has username and a timestamp, posts are sorted in ascending order.
-There is a 1500 character limit.
-Star rating is implemented with starability CSS library.
+The Reviews page of the website allows authenticated users to leave their own review of the restaurant. They can also view reviews left by other users, which are displayed in ascending order. Each review includes the username and timestamp of the user who left it, as well as a star rating using the starability CSS library. The reviews provide valuable feedback for the restaurant, and allow customers to see what others think of our food, service, and atmosphere. The 1500 character limit on reviews ensures that they are concise and to the point.
+
 ![Screenshot of BBQ Country website](static/image/screenshots/bbq-reviews.png)
 ![Screenshot of BBQ Country website](static/image/screenshots/bbq-add-review.png)
 
 ### Booking Form
-Authenticated users can book a time and date of their visit.
-Form has required fields and it also checks the validity of information entered.
-For example email and phone number have to be in correct format.
-There is also date picker that has some defensive coding implemented, for example users can't book a date in the past.
-Form also has a timepicker with predefined working times.
-Number of people field requires minimum of 1, has to be number etc.
-Application will show the user messages on success/fail.
+Booking page allows authenticated users to easily make a reservation at a restaurant. The page features a form with required fields that check the validity of the information entered, such as the email and phone number. The date picker on the form includes defensive coding to prevent users from selecting a date in the past, and the time picker offers a range of predefined working times. The number of people field requires a minimum of 1 and can only be a number, ensuring that the information entered is accurate and complete. Upon submission, the form will show the user a success or failure message, depending on the outcome of the booking.
+
 ![Screenshot of BBQ Country website](static/image/screenshots/bbq-booking.png)
 
 ### Reservations
-Not only can authenticated users see their reservations, they can also make updates 
-or cancel (delete) them altogether.
-Each entry has Edit and Delete buttons. 
-Edit button will redirect the user to main booking form and prefill the fields with selected records info.
-Delete button will, surprise.. delete the info from DB.
-Application will show the user messages for success/fail.
+In addition to being able to view their reservations, authenticated users on the website can also make updates or cancel them altogether. Each reservation entry on the page has an Edit and Delete button, allowing the user to easily manage their bookings. The Edit button will redirect the user to the main booking form, where they can modify the information for their reservation. The Delete button will delete the reservation from the database. Upon successful completion of these actions, the user will be shown a success or failure message.
+
 ![Screenshot of BBQ Country website](static/image/screenshots/bbq-reservations.png)
 
 ### Sign in and Sign out
-Sign in and sign out forms will show the user messages for success/fail.
+The Sign In and Sign Out forms will display success or failure messages to the user, depending on the outcome of the action. This provides feedback to the user, letting them know whether their sign in or sign out was successful, and why if it was not. This design helps to improve the user experience and ensure that customers can easily and securely manage their accounts on the website.
 ![Screenshot of BBQ Country website](static/image/screenshots/bbq-signin.png)
 ![Screenshot of BBQ Country website](static/image/screenshots/bbq-signout.png)
 
 
 ### Admin Panel
-The admin has the ability to view, update, and delete all reservations and reviews on the admin panel. He can also add or remove users or change their details.
+The admin panel allows the admin to view, update, and delete all reservations and reviews. This gives the admin full control over the information on the website, allowing them to manage and maintain the accuracy and completeness of the data. The admin can also add or remove users, or change their details, allowing them to manage the user accounts on the website. This design provides the admin with the tools they need to effectively manage the website and ensure that it provides a valuable service to customers.
+
 ![Screenshot of BBQ Country website](static/image/screenshots/bbq-admin.png)
 
 ## Testing and Validation
@@ -133,13 +124,15 @@ The admin has the ability to view, update, and delete all reservations and revie
 This project has been tested on the following operating systems and browsers:
 
 * Windows 10 
-   - Chrome 
-   - Firefox 
+   - Chrome ver.108.0.5359.98
+   - Firefox ver.107.0.1
 * Fedora Silverblue Linux 
-   - Chrome
-   - Firefox
+   - Chrome ver.108.0.5359.98
+   - Firefox ver.107.0.1
 * iPad OS on iPad Air 
-   - Safari
+   - Safari ver.16.1
+* Android
+   - Vivaldi ver.5.5.2805.50
 
 ### Unit Testing
 Unit tests are located in the restaurant/test repo folder. These tests cover the following features:
@@ -175,6 +168,8 @@ Unit tests are located in the restaurant/test repo folder. These tests cover the
 * Test booking form with valid data, user should be redirected to my_reservations page after successful booking
 
 <br>
+
+Unit tests were run on in-memory SQLite DB
 
 ![Screenshot of BBQ Country website](static/image/screenshots/bbq-unit-tests.png)
 
