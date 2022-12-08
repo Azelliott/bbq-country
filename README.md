@@ -199,6 +199,9 @@ Second instance:
 #### HTML
 [W3 HTML Validator](https://validator.w3.org/nu/) - W3 HTML Online Validator
 
+Site passes 100% on HTML Validation
+
+![Screenshot of BBQ Country website](static/image/screenshots/validations/bbq-html.png)
 
 
 ### Running Automated Tests
@@ -258,7 +261,6 @@ ALLOWED_HOSTS: hostname of the Heroku app
 DATABASE_URL: URL of the PostgreSQL database
 
 ```
-
 
 
 ## Attributions
